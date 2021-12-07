@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Font">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/title_text</item>
+    </style>
+
+    <style name="Font.Button" parent="Font">
+        <item name="android:fontFamily">@font/nunito_extrabold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>
