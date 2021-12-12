@@ -1,5 +1,12 @@
 ext {
 
+    //versions
+    androidCompileSdkVersion = 31
+    androidMinSdkVersion = 23
+    androidTargetSdkVersion = 30
+    androidVersionCode = 405
+    androidVersionName = 'git rev-parse --short HEAD'.execute().text.trim()
+
     //kotlin
     coroutineVersion = "1.3.9"
 
