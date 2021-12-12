@@ -9,3 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "GitHubApplication"
 include ':app'
 include ':uikit'
+include ':navigation'
+include ':feature_search'
