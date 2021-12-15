@@ -20,7 +20,7 @@ android {
         debug {
             testCoverageEnabled true
         }
-
+    }
 
         defaultConfig {
             testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -46,12 +46,8 @@ android {
             }
         }
 
-        dexOptions {
-            preDexLibraries = false
-        }
-
         buildFeatures {
             viewBinding true
+            dataBinding true
         }
     }
-}
