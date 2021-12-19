@@ -20,6 +20,7 @@ apply from: "$rootProject.projectDir/android-common.gradle"
 
 dependencies {
 
+    implementation project(':di')
     implementation project(':base_feature')
     implementation project(':navigation')
 

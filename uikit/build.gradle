@@ -9,6 +9,4 @@ apply plugin: 'kotlin-android'
 dependencies {
 
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
