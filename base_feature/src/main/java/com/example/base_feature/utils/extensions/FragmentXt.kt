@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
+import com.example.base_feature.R
 
 fun Fragment.hideActionBar() = (activity as? AppCompatActivity)?.supportActionBar?.hide()
 

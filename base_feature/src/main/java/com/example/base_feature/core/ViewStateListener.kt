@@ -1,9 +1,9 @@
 package com.example.base_feature.core
 
-import androidx.constraintlayout.motion.utils.ViewState
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import com.example.base_feature.utils.extensions.observeLiveData
+import com.example.domain.exception.DataSourceException
 import java.net.ConnectException
 import java.net.UnknownHostException
 
@@ -13,7 +13,6 @@ interface ViewStateListener {
     fun onStateLoading()
 
     fun hideLoading()
-
 
     fun handlePresentationException(error: DataSourceException, action: (() -> Unit)? = null)
 
@@ -37,10 +36,6 @@ interface ViewStateListener {
             onError = { error ->
                 hideLoading()
                 when (error) {
-                    is UnauthorizedException -> {
-                        handleWithUnauthorized(error)
-                        return@stateHandler
-                    }
                     is DataSourceException -> {
                         if (showDataSourceException)
                             handlePresentationException(error, errorBottomSheetAction)
@@ -67,7 +62,14 @@ interface ViewStateListener {
         showDataSourceException: Boolean = true
     ) {
         observeLiveData(lifecycleOwner) {
-            it.handle(onError, onLoading, onComplete, onSuccess, errorBottomSheetAction, showDataSourceException)
+            it.handle(
+                onError,
+                onLoading,
+                onComplete,
+                onSuccess,
+                errorBottomSheetAction,
+                showDataSourceException
+            )
         }
     }
 

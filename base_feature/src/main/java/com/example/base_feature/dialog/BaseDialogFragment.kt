@@ -13,7 +13,6 @@ open class BaseDialogFragment : DialogFragment(), LifecycleObserver {
     private var isLoading = false
     private var lifecycleOwner: LifecycleOwner? = null
 
-
     fun show(fragmentContainer: BaseFragment<*>){
         show(
             fragmentContainer.childFragmentManager,
@@ -49,6 +48,4 @@ open class BaseDialogFragment : DialogFragment(), LifecycleObserver {
             )
         }
     }
-
-
 }
