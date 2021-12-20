@@ -11,4 +11,16 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Font.Title" parent="Font">
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Font.SubTitle" parent="Font">
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+
 </resources>
