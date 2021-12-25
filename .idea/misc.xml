@@ -6,12 +6,6 @@
         <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/app/src/main/res/layout/fragment_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/app/src/main/res/layout/fragment_search.xml" value="0.25" />
-        <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/base_feature/src/main/res/layout/bottom_sheet_generic_error.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/base_feature/src/main/res/layout/dialog_loading.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_history.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_search.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/106020/Documents/GitHub/GitHubApplication/uikit/src/main/res/drawable/bg_bottom_sheet.xml" value="0.362962962962963" />
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
@@ -21,6 +15,7 @@
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/uikit/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/uikit/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/uikit/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.3828125" />
+        <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

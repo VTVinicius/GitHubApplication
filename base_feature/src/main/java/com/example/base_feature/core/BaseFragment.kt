@@ -18,6 +18,7 @@ import com.example.base_feature.utils.extensions.hideKeyboard
 import com.example.base_feature.dialog.BaseDialogFragment
 import com.example.base_feature.utils.extensions.showBottomSheet
 import com.example.base_feature.utils.watchers.KeyboardEventListener
+import com.example.domain.exception.DataSourceException
 import com.example.uikit.R as UikitR
 
 
@@ -102,6 +103,30 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment(), ViewStateListen
         loadingDialogFragment = null
     }
 
+    open fun showErrorDialog(
+        @DrawableRes drawable: Int? = null,
+        title: String? = null,
+        description: String? = null,
+        buttonText: String? = null,
+        action: (() -> Unit)? = null,
+        backButtonIsVisible: Boolean = false,
+        backButtonListener: (() -> Unit)? = null
+    ) {
+        GenericErrorBottomSheet.newInstance(
+            drawable = drawable,
+            title = title ?: getString(UikitR.string.generic_error_title),
+            description = description ?: getString(UikitR.string.generic_network_error_description),
+            buttonText = buttonText ?: getString(UikitR.string.understood),
+            onPressed = {
+                action?.invoke()
+            },
+            backButtonIsVisible = backButtonIsVisible,
+            backButtonListener = {
+                backButtonListener?.invoke()
+            }
+        ).showBottomSheet(this@BaseFragment)
+    }
+
     open fun showGenericDialog(
         @DrawableRes drawable: Int? = null,
         title: String = "",
@@ -120,6 +145,34 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment(), ViewStateListen
             },
             closeButtonIsVisible = closeButtonIsVisible
         ).showBottomSheet(this@BaseFragment)
+    }
+
+
+    override fun handlePresentationException(error: DataSourceException, action: (() -> Unit)?) {
+        showErrorDialog(
+            description = error.message,
+            action = action,
+            backButtonIsVisible = true,
+            backButtonListener = {
+                activity?.onBackPressed()
+            }
+        )
+    }
+
+    override fun handleNoNetworkConnectionException(action: (() -> Unit)?) {
+        showErrorDialog(
+            title = getString(UikitR.string.generic_error_title),
+            description = getString(UikitR.string.generic_network_error_description),
+            buttonText = getString(UikitR.string.understood),
+            action = {
+                if (action != null) action.invoke()
+                else activity?.onBackPressed()
+            },
+            backButtonIsVisible = true,
+            backButtonListener = {
+                activity?.onBackPressed()
+            }
+        )
     }
 
 
