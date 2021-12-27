@@ -1,0 +1,31 @@
+package com.example.githubapplication.app
+
+import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
+import org.koin.core.context.startKoin
+import com.example.di.*
+import com.example.di.navigation.navigationModule
+import org.koin.android.ext.koin.androidContext
+
+
+@Suppress("unused")
+class BaseApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        startKoin {
+            modules(
+                navigationModule +
+                        listOf(
+                            presentationModule,
+                            domainModule,
+                            dataModule,
+                            dataRemoteModule,
+                            dataLocalModule,
+                            databaseModule
+                        )
+            ).androidContext(applicationContext)
+        }
+    }
+}
