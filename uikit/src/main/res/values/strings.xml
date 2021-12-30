@@ -8,4 +8,9 @@
     <string name="generic_network_error_description">Ocorreu um problema ao validar as informações. Verifique sua <b>conexão de internet</b> e tente novamente</string>
 
 
+    <!-- ERRORS -->
+    <string name="no_bio">Sem Bio</string>
+    <string name="no_email">Email Indisponível</string>
+
+
 </resources>
