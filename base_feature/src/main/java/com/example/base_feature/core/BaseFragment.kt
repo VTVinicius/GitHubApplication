@@ -115,7 +115,7 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment(), ViewStateListen
         GenericErrorBottomSheet.newInstance(
             drawable = drawable,
             title = title ?: getString(UikitR.string.generic_error_title),
-            description = description ?: getString(UikitR.string.generic_network_error_description),
+            description = description ?: getString(UikitR.string.generic_error_description),
             buttonText = buttonText ?: getString(UikitR.string.understood),
             onPressed = {
                 action?.invoke()
