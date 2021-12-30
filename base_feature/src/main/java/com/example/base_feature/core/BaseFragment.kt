@@ -65,6 +65,7 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment(), ViewStateListen
             }
         }
     }
+
     abstract fun onCreateViewBinding(inflater: LayoutInflater): Binding
 
     override fun onStop() {
@@ -147,7 +148,6 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment(), ViewStateListen
         ).showBottomSheet(this@BaseFragment)
     }
 
-
     override fun handlePresentationException(error: DataSourceException, action: (() -> Unit)?) {
         showErrorDialog(
             description = error.message,
@@ -174,7 +174,6 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment(), ViewStateListen
             }
         )
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

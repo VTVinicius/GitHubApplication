@@ -18,5 +18,4 @@ interface GithubWebService {
         const val GITHUB_USERNAME = "VTVinicius"
         const val GITHUB_USER_BASE = "$GITHUB_API_URL/users/{$GITHUB_USERNAME}"
     }
-
 }

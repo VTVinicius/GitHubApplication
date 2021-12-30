@@ -26,6 +26,9 @@ class SearchUserViewModel : ViewModel(), KoinComponent {
         )
     }
 
+    fun resetViewState(){
+        _searchUserViewState.postNeutral()
+    }
 
 }
 

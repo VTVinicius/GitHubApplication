@@ -18,7 +18,6 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
     override fun onCreateViewBinding(inflater: LayoutInflater) =
         FragmentSearchBinding.inflate(inflater)
 
-
     override fun setupView() {
         super.setupView()
 
@@ -32,7 +31,6 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
 
     override fun addObservers(owner: LifecycleOwner) {
         super.addObservers(owner)
-
         searchUserObserver(owner)
     }
 
@@ -46,15 +44,13 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
                 binding.imgProfilePic.loadUrlWithCircular(url = searchUserModel.avatar_url)
             },
             onError = {
-               showErrorDialog()
+                showErrorDialog()
             })
-
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-
+        viewModel.resetViewState()
     }
 
 }
