@@ -16,7 +16,7 @@ import com.example.base_feature.utils.extensions.setStateExpanded
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.parcelize.Parcelize
 
-class GenericErrorBottomSheet  : BaseBottomSheet<BottomSheetGenericErrorBinding>() {
+class GenericErrorBottomSheet : BaseBottomSheet<BottomSheetGenericErrorBinding>() {
 
 
     private val args by lazy { Args.fromBundle(arguments) }
@@ -55,15 +55,6 @@ class GenericErrorBottomSheet  : BaseBottomSheet<BottomSheetGenericErrorBinding>
             setOnClickListener {
                 onButtonPressed?.invoke()
                 dismiss()
-            }
-
-            args.buttonDrawable.let {
-                if (it == null) {
-                    icon = null
-                    return
-                }
-
-                icon = getDrawableResource(it)
             }
         }
     }
