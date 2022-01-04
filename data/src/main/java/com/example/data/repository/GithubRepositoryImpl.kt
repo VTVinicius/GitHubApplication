@@ -16,11 +16,11 @@ class GithubRepositoryImpl(
     override fun searchUser(username: String) = githubRemoteDataSource.searchUser(username)
 
 
-    override fun getGitUser(): Flow<GitUserModel> =
+    override fun getGitUsers(): Flow<GitUserModel> =
         flow { (githubLocalDataSource.getGitUserData()) }
 
     override fun saveGitUserData(gitUserModel: GitUserModel) =
         flow { emit(githubLocalDataSource.saveGitUserData(gitUserModel)) }
 
-
-}
+    override fun getSingleUser(userID: Long) = githubLocalDataSource.getSingleUserData(userID)
+    }

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchUserResponse(
     @SerializedName("id")
-    val id: Int?,
+    val id: Long,
     @SerializedName("login")
     val login: String?,
     @SerializedName("avatar_url")
@@ -12,5 +12,7 @@ data class SearchUserResponse(
     @SerializedName("bio")
     val bio: String?,
     @SerializedName("email")
-    val email: String?
+    val email: String?,
+    @SerializedName("name")
+    val name: String?
 )

@@ -1,9 +1,9 @@
-package com.example.data_local.database.datasource
+package com.example.data_local.datasource
 
 import com.example.data.datasource.local.GithubLocalDataSource
 import com.example.data_local.database.GitUserDao
-import com.example.data_local.database.mapper.GitUserDataMapper.toDao
-import com.example.data_local.database.mapper.GitUserDataMapper.toDomain
+import com.example.data_local.mapper.GitUserDataMapper.toDao
+import com.example.data_local.mapper.GitUserDataMapper.toDomain
 import com.example.domain.model.github.GitUserModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -26,4 +26,12 @@ class GithubLocalDataSourceImpl(
             emit(list)
         }
     }
+
+    override fun getSingleUserData(userID: Long): Flow<GitUserModel>  = flow{
+        gitUserDao.getSingleUser(userID).collect {
+            emit(it.toDomain())
+
+        }
+    }
+
 }

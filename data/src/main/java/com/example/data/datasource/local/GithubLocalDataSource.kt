@@ -7,5 +7,6 @@ interface GithubLocalDataSource {
 
     fun saveGitUserData(gitUserModel: GitUserModel)
     fun getGitUserData(): Flow<List<GitUserModel>>
+    fun getSingleUserData(userID: Long): Flow<GitUserModel>
 
 }

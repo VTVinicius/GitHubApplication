@@ -9,6 +9,8 @@ object SearchUserMapper : DataRemoteMapper<SearchUserResponse, SearchUserModel>(
         login = data.login,
         avatar_url = data.avatar_url,
         bio = data.bio,
-        email = data.email
+        email = data.email,
+        id = data.id,
+        name = data.name
     )
 }

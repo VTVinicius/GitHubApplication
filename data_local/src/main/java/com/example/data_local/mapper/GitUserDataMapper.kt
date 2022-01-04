@@ -1,4 +1,4 @@
-package com.example.data_local.database.mapper
+package com.example.data_local.mapper
 
 import com.example.data_local.database.model.GitUserDataLocal
 import com.example.data_local.database.model.GitUserLocal
@@ -16,7 +16,8 @@ object GitUserDataMapper {
             id = gitUserData.user.id,
             login = gitUserData.user.login,
             name = gitUserData.user.name
-        )
+        ),
+        guid = gitUserData.user.id
     )
 
     fun GitUserLocal.toDomain() = GitUserModel(
