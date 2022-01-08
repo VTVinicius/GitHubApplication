@@ -6,7 +6,7 @@ apply from: "$rootProject.projectDir/android-common.gradle"
 
 dependencies {
     implementation project(':base_feature')
-    api project(':uikit')
+    implementation project(':uikit')
     api project(':domain')
 
     appDependencies.each { add(it.configuration, it.dependency, it.options) }

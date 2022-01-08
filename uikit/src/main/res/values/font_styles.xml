@@ -20,6 +20,10 @@
         <item name="android:fontFamily">@font/nunito_regular</item>
         <item name="android:textSize">16sp</item>
     </style>
+    <style name="CardFont">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
 
 

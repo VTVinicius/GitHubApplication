@@ -10,5 +10,8 @@
     <!-- ERRORS -->
     <string name="no_bio">Sem Bio</string>
     <string name="no_email">Email Indisponível</string>
+    <string name="github_name">Nome Github</string>
+    <string name="personal_name">Nome Pessoal</string>
+    <string name="bio">Bio</string>
 
 </resources>

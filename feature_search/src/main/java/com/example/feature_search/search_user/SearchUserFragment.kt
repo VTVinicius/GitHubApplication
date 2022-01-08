@@ -15,7 +15,7 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
 
     private val viewModel: SearchUserViewModel by viewModel()
 
-    override fun onCreateViewBinding(inflater: LayoutInflater) =
+    override fun onCreateViewBinding(inflater: LayoutInflater): FragmentSearchBinding =
         FragmentSearchBinding.inflate(inflater)
 
     override fun setupView() {
