@@ -11,8 +11,6 @@ interface GitUserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUser(gitUser: GitUserLocal)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addList(gitUsers: List<GitUserLocal>)
 
     @Query("SELECT * FROM GitUsersTable")
     fun getAll(): Flow<List<GitUserLocal>>

@@ -41,7 +41,7 @@ open class GithubListUsers @JvmOverloads constructor(
             binding.tvBio.text = value
         }
 
-    val profilePic: ImageView by lazy {
+    val profilePic: ImageView? by lazy {
         binding.image
     }
 

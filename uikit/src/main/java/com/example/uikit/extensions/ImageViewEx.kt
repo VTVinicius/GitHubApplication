@@ -1,4 +1,4 @@
-package com.example.base_feature.utils.extensions
+package com.example.uikit.extensions
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView

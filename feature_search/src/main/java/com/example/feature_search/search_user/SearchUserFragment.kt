@@ -1,14 +1,10 @@
 package com.example.feature_search.search_user
 
 import android.view.LayoutInflater
-import android.widget.ImageView
-import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.LifecycleOwner
-import com.bumptech.glide.load.HttpException
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.extensions.hideKeyboard
-import com.example.base_feature.utils.extensions.loadUrl
-import com.example.base_feature.utils.extensions.loadUrlWithCircular
+import com.example.uikit.extensions.loadUrlWithCircular
 import com.example.feature_search.R
 import com.example.feature_search.databinding.FragmentSearchBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -21,10 +21,15 @@ object GitUserDataMapper {
     )
 
     fun GitUserLocal.toDomain() = GitUserModel(
-        gitUserData = GitUserDataModel(
-            user = SearchUserModel()
+            gitUserData = GitUserDataModel(
+                user = SearchUserModel(
+                    id = gitUserData.id,
+                    name = gitUserData.name,
+                    bio = gitUserData.bio,
+                    avatar_url = gitUserData.avatar_url,
+                    email = gitUserData.email,
+                    login = gitUserData.login
+                )
+            )
         )
-    )
-
-
-}
+    }

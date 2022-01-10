@@ -8,7 +8,7 @@ interface GithubRepository {
 
     fun searchUser(username: String) : Flow<SearchUserModel>
 
-    fun getGitUsers(): Flow<GitUserModel>
+    fun getGitUsers(): Flow<List<GitUserModel>>
     fun saveGitUserData(gitUserModel: GitUserModel) : Flow<Unit>
     fun getSingleUser(userID: Long): Flow<GitUserModel>
 

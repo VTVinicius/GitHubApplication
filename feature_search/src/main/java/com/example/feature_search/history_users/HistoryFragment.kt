@@ -1,33 +1,18 @@
 package com.example.feature_search.history_users
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.base_feature.core.BaseFragment
-import com.example.base_feature.utils.extensions.hideKeyboard
+import com.example.domain.model.github.GitUserModel
 import com.example.feature_search.databinding.FragmentHistoryBinding
-import com.example.feature_search.databinding.FragmentSearchBinding
-import com.example.feature_search.search_user.SearchUserViewModel
-import com.example.uikit.databinding.CustomCardUserListBinding
-import com.example.uikit.list_github_user.GithubListModel
-import com.example.uikit.list_github_user.GithubListUsersAdapter
-import com.example.uikit.list_github_user.GithubSelectList
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.bind
 
-class HistoryFragment : BaseFragment<FragmentHistoryBinding>(), GithubSelectList {
+class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private val viewModel: HistoryViewModel by viewModel()
 
-    private lateinit var itemsRv : RecyclerView
     private lateinit var githubListUsersAdapter: GithubListUsersAdapter
 
 
@@ -38,46 +23,94 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(), GithubSelectList
     override fun setupView() {
         super.setupView()
 
-        itemsRv = binding.usersListRecyclerView
-        githubListUsersAdapter = GithubListUsersAdapter(this)
-        itemsRv.adapter = githubListUsersAdapter
-
         getUsersLocal()
+        setUpUserCards()
 
     }
 
-
-    override fun addObservers(owner: LifecycleOwner) {
-        super.addObservers(owner)
-        with(viewModel){
-            getUsersLocalViewState.onPostValue(owner,
-                onSuccess = {
-                githubListUsersAdapter.GithubListUsersViewHolder(CustomCardUserListBinding.bind(
-                    binding.usersListRecyclerView)
-                ).bind(login = it.gitUserData.user.login,
-                    name = it.gitUserData.user.name,
-                    bio = it.gitUserData.user.bio,
-                )
-
-
-
-                },
-                onError = {
-
-                }
-            )
-        }
-
-    }
-
-    private fun getUsersLocal(){
+    private fun getUsersLocal() {
         onStateLoading()
         viewModel.getUsersLocal()
 
-
     }
 
-    override fun onChangedSelectListener(item: GithubListModel) {
-
+    private fun setUpUserCards() {
+        githubListUsersAdapter = GithubListUsersAdapter(listOf()) //, this::onItemClick
+        binding.usersListRecyclerView.apply {
+            adapter = githubListUsersAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
     }
+
+//    private fun onItemClick(userDetails: GitUserModel) {
+//        navigation.goToUserFullScreen(
+//            userDetails = userDetails.toJson()
+//        )
+//    }
+
+    override fun addObservers(owner: LifecycleOwner) {
+        super.addObservers(owner)
+
+        listUsersObserver(owner)
+    }
+
+    private fun listUsersObserver(owner: LifecycleOwner) {
+
+        viewModel.getUsersLocalViewState.onPostValue(owner,
+            onSuccess = {
+                updateUserList(it)
+            },
+            onError = {
+                showErrorDialog()
+            }
+        )
+    }
+
+    private fun updateUserList(list: List<GitUserModel>) {
+        githubListUsersAdapter.updateUserList(list = list)
+    }
+
+//
+//            private fun paymentHistoricObserver(owner: LifecycleOwner) {
+//        viewModel.paymentHistoricViewState.onPostValue(owner,
+//            onLoading = {
+//                binding.listLoadingLottie.setVisible()
+//                binding.paymentHistoricPlaceHolder.root.setGone()
+//                binding.rvPaymentHistoric.setGone()
+//            },
+//            onSuccess = {
+//                binding.listLoadingLottie.setGone()
+//                if (it.isEmpty()) {
+//                    binding.paymentHistoricPlaceHolder.apply {
+//                        tvPlaceHolderTitle.text = getString(R.string.payment_historic_placeholder)
+//                        root.setVisible()
+//                    }
+//                    binding.viewHeaderBackground.setGone()
+//                    binding.imageView.setGone()
+//                } else {
+//                    binding.paymentHistoricPlaceHolder.root.setGone()
+//                    binding.rvPaymentHistoric.setVisible()
+//                    setupCarousel(data = viewModel.paymentHistoricYearList)
+//                    updatePaymentHistoricList(
+//                        list = viewModel.getPaymentHistoricBasedOnYear() ?: listOf()
+//                    )
+//                }
+//            },
+//            onError = {
+//                binding.listLoadingLottie.setGone()
+//            }
+//        )
+//    }
+//
+//    with(viewModel) {
+//            getUsersLocalViewState.onPostValue(owner,
+//                onSuccess = {
+//
+//                },
+//                onError = {
+//                    showErrorDialog()
+//                }
+//            )
+//        }
+
 }
