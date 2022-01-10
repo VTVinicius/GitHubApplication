@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
@@ -15,6 +16,8 @@ import com.example.base_feature.utils.extensions.hideKeyboard
 import com.example.feature_search.databinding.FragmentHistoryBinding
 import com.example.feature_search.databinding.FragmentSearchBinding
 import com.example.feature_search.search_user.SearchUserViewModel
+import com.example.uikit.databinding.CustomCardUserListBinding
+import com.example.uikit.list_github_user.GithubListModel
 import com.example.uikit.list_github_user.GithubListUsersAdapter
 import com.example.uikit.list_github_user.GithubSelectList
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -48,8 +51,16 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(), GithubSelectList
         super.addObservers(owner)
         with(viewModel){
             getUsersLocalViewState.onPostValue(owner,
-                onSuccess = { gitUserModel ->
-//                 githubListUsersAdapter.userList = gitUserModel.map{}
+                onSuccess = {
+                githubListUsersAdapter.GithubListUsersViewHolder(CustomCardUserListBinding.bind(
+                    binding.usersListRecyclerView)
+                ).bind(login = it.gitUserData.user.login,
+                    name = it.gitUserData.user.name,
+                    bio = it.gitUserData.user.bio,
+                )
+
+
+
                 },
                 onError = {
 
@@ -66,4 +77,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(), GithubSelectList
 
     }
 
+    override fun onChangedSelectListener(item: GithubListModel) {
+
+    }
 }

@@ -15,7 +15,7 @@ class HistoryViewModel : ViewModel(), KoinComponent {
 
     private val getUsersLocalUseCase: GetUsersLocalUseCase by useCase()
 
-    private val _getUsersLocalViewState by viewState<List<GitUserModel>>()
+    private val _getUsersLocalViewState by viewState<GitUserModel>()
 
     val getUsersLocalViewState = _getUsersLocalViewState.asLiveData()
 

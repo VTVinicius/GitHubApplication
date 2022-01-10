@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.feature_search.search_user.SearchUserFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.feature_search.history_users.HistoryFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

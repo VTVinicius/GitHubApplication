@@ -1,6 +1,8 @@
 package com.example.feature_search.search_user
 
 import android.view.LayoutInflater
+import android.widget.ImageView
+import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.LifecycleOwner
 import com.bumptech.glide.load.HttpException
 import com.example.base_feature.core.BaseFragment
@@ -38,10 +40,10 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
 
         viewModel.searchUserViewState.onPostValue(owner,
             onSuccess = { searchUserModel ->
-                binding.tvName.text = searchUserModel.login
-                binding.tvBio.text = searchUserModel.bio ?: getString(R.string.no_bio)
-                binding.tvEmail.text = searchUserModel.email ?: getString(R.string.no_email)
-                binding.imgProfilePic.loadUrlWithCircular(url = searchUserModel.avatar_url)
+                binding.cardUser.login = searchUserModel.login
+                binding.cardUser.bio = searchUserModel.bio ?: getString(R.string.no_bio)
+                binding.cardUser.name = searchUserModel.email ?: getString(R.string.no_email)
+                binding.cardUser.profilePic?.loadUrlWithCircular(url = searchUserModel.avatar_url)
             },
             onError = {
                 showErrorDialog()

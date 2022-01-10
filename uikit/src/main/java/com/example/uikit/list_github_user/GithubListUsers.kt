@@ -1,7 +1,10 @@
 package com.example.uikit.list_github_user
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.uikit.R
 import com.example.uikit.databinding.CardGithubUserBinding
@@ -20,23 +23,28 @@ open class GithubListUsers @JvmOverloads constructor(
 
     var card = binding.layout
 
-    var name: String = ""
+    var name: String? = ""
         set(value) {
             field = value
             binding.tvName.text = value
         }
 
-    var login: String = ""
+    var login: String? = ""
         set(value) {
             field = value
             binding.tvLogin.text = value
         }
 
-    var bio: String = ""
+    var bio: String? = ""
         set(value) {
             field = value
             binding.tvBio.text = value
         }
+
+    val profilePic: ImageView by lazy {
+        binding.image
+    }
+
 
     init {
         setUpViews(attributes)
