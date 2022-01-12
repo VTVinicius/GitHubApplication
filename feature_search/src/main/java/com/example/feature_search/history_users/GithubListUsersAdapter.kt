@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.github.GitUserModel
-import com.example.uikit.databinding.CustomCardUserListBinding
+import com.example.uikit.databinding.CardGithubUserBinding
 import com.example.uikit.extensions.layoutInflater
-import com.example.uikit.extensions.loadUrl
+import com.example.uikit.extensions.loadUrlWithCircular
 
 class GithubListUsersAdapter(
     private var list: List<GitUserModel>
@@ -29,7 +29,9 @@ class GithubListUsersAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ) = GithubListUsersViewHolder(CustomCardUserListBinding.inflate(parent.context.layoutInflater))
+    ): GithubListUsersViewHolder {
+        return GithubListUsersViewHolder(CardGithubUserBinding.inflate(parent.context.layoutInflater, parent, false))
+    }
 
     override fun getItemCount() = list.size
 
@@ -37,14 +39,15 @@ class GithubListUsersAdapter(
         holder.bind(data = list[position])
     }
 
-    inner class GithubListUsersViewHolder(val binding: CustomCardUserListBinding) :
+    inner class GithubListUsersViewHolder(
+        private val binding: CardGithubUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: GitUserModel ){
-            binding.itemsRv.name = data.gitUserData.user.name
-            binding.itemsRv.bio = data.gitUserData.user.bio
-            binding.itemsRv.login = data.gitUserData.user.login
-            binding.itemsRv.profilePic?.loadUrl(data.gitUserData.user.avatar_url)
+        fun bind(data: GitUserModel) {
+            binding.image.loadUrlWithCircular(data.gitUserData.user.avatar_url)
+            binding.tvName.text = data.gitUserData.user.name ?: "Sem nome Pessoal"
+            binding.tvBio.text = data.gitUserData.user.bio ?: "Sem Biografia"
+            binding.tvLogin.text = data.gitUserData.user.login
 
 //            binding.itemsRv.card.setOnClickListener {
 //                onItemClick.invoke(data)

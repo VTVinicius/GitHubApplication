@@ -13,6 +13,13 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
 
     private val viewModel: SearchUserViewModel by viewModel()
 
+    private var userLogin: String? = ""
+    private var userName: String? = ""
+    private var userBio: String? = ""
+    private var userImage: String? = ""
+    private var userEmail: String? = ""
+
+
     override fun onCreateViewBinding(inflater: LayoutInflater): FragmentSearchBinding =
         FragmentSearchBinding.inflate(inflater)
 
@@ -36,10 +43,11 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
 
         viewModel.searchUserViewState.onPostValue(owner,
             onSuccess = { searchUserModel ->
-                binding.cardUser.login = searchUserModel.login
-                binding.cardUser.bio = searchUserModel.bio ?: getString(R.string.no_bio)
-                binding.cardUser.name = searchUserModel.email ?: getString(R.string.no_email)
-                binding.cardUser.profilePic?.loadUrlWithCircular(url = searchUserModel.avatar_url)
+                userLogin = searchUserModel.login
+                userName = searchUserModel.name
+                userBio = searchUserModel.bio ?: getString(R.string.no_bio)
+                userEmail = searchUserModel.email ?: getString(R.string.no_email)
+                userImage = searchUserModel.avatar_url
             },
             onError = {
                 showErrorDialog()
