@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">GitHubApplication</string>
+    <string name="title_home">Início</string>
+    <string name="title_search">Pesquisar</string>
+    <string name="title_history">Histórico</string>
+
     <string name="understood">Entendi</string>
 
     <!-- GENERIC ERRORS -->
@@ -10,5 +16,8 @@
     <!-- ERRORS -->
     <string name="no_bio">Sem Bio</string>
     <string name="no_email">Email Indisponível</string>
+    <string name="github_name">Nome Github</string>
+    <string name="personal_name">Nome Pessoal</string>
+    <string name="bio">Bio</string>
 
 </resources>

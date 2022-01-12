@@ -1,44 +1,118 @@
 package com.example.feature_search.history_users
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.base_feature.core.BaseFragment
+import com.example.domain.model.github.GitUserModel
 import com.example.feature_search.databinding.FragmentHistoryBinding
+import com.example.uikit.extensions.layoutInflater
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.bind
 
-class HistoryFragment : Fragment() {
+class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
-    private lateinit var historyViewModel: HistoryViewModel
-    private var _binding: FragmentHistoryBinding? = null
+    private val viewModel: HistoryViewModel by viewModel()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var githubListUsersAdapter: GithubListUsersAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        historyViewModel =
-            ViewModelProvider(this).get(HistoryViewModel::class.java)
 
-        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+    override fun onCreateViewBinding(inflater: LayoutInflater): FragmentHistoryBinding =
+        FragmentHistoryBinding.inflate(inflater)
 
-        val textView: TextView = binding.textNotifications
-        historyViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+
+    override fun setupView() {
+        super.setupView()
+
+        getUsersLocal()
+        setUpUserCards()
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun getUsersLocal() {
+        onStateLoading()
+        viewModel.getUsersLocal()
+
     }
+
+    private fun setUpUserCards() {
+        onStateLoading()
+        githubListUsersAdapter = GithubListUsersAdapter(listOf()) //, this::onItemClick
+        binding.usersListRecyclerView.apply {
+            adapter = githubListUsersAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
+//    private fun onItemClick(userDetails: GitUserModel) {
+//        navigation.goToUserFullScreen(
+//            userDetails = userDetails.toJson()
+//        )
+//    }
+
+    override fun addObservers(owner: LifecycleOwner) {
+        super.addObservers(owner)
+
+        listUsersObserver(owner)
+    }
+
+    private fun listUsersObserver(owner: LifecycleOwner) {
+
+        viewModel.getUsersLocalViewState.onPostValue(owner,
+            onSuccess = {
+                updateUserList(it)
+            },
+            onError = {
+                showErrorDialog()
+            }
+        )
+    }
+
+    private fun updateUserList(list: List<GitUserModel>) {
+        githubListUsersAdapter.updateUserList(list = list)
+    }
+
+//
+//            private fun paymentHistoricObserver(owner: LifecycleOwner) {
+//        viewModel.paymentHistoricViewState.onPostValue(owner,
+//            onLoading = {
+//                binding.listLoadingLottie.setVisible()
+//                binding.paymentHistoricPlaceHolder.root.setGone()
+//                binding.rvPaymentHistoric.setGone()
+//            },
+//            onSuccess = {
+//                binding.listLoadingLottie.setGone()
+//                if (it.isEmpty()) {
+//                    binding.paymentHistoricPlaceHolder.apply {
+//                        tvPlaceHolderTitle.text = getString(R.string.payment_historic_placeholder)
+//                        root.setVisible()
+//                    }
+//                    binding.viewHeaderBackground.setGone()
+//                    binding.imageView.setGone()
+//                } else {
+//                    binding.paymentHistoricPlaceHolder.root.setGone()
+//                    binding.rvPaymentHistoric.setVisible()
+//                    setupCarousel(data = viewModel.paymentHistoricYearList)
+//                    updatePaymentHistoricList(
+//                        list = viewModel.getPaymentHistoricBasedOnYear() ?: listOf()
+//                    )
+//                }
+//            },
+//            onError = {
+//                binding.listLoadingLottie.setGone()
+//            }
+//        )
+//    }
+//
+//    with(viewModel) {
+//            getUsersLocalViewState.onPostValue(owner,
+//                onSuccess = {
+//
+//                },
+//                onError = {
+//                    showErrorDialog()
+//                }
+//            )
+//        }
+
 }
