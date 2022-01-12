@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import com.example.base_feature.core.BaseBottomSheet
 import com.example.feature_search.commom.user_info.UserFoundBottomSheet.Companion.Args.Companion.fromBundle
 import com.example.feature_search.databinding.BottomSheetUserInfoBinding
+import com.example.uikit.extensions.loadUrlWithCircular
 import kotlinx.parcelize.Parcelize
 
 class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
@@ -19,6 +20,10 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
     override fun setupView() {
         super.setupView()
 
+        binding.imgProfilePicture.loadUrlWithCircular("${args.userInfo?.avatar_url}")
+        binding.tvUserLogin.text = "${args.userInfo?.login}"
+        binding.tvBio.text = "${args.userInfo?.bio}"
+
 
     }
 
@@ -27,7 +32,6 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
         @Parcelize
         data class Args(
             var userInfo: UserInfoModel? = null,
-            var onClick: (() -> Unit)? = null
 
         ) : Parcelable {
             fun toBundle() = Bundle().also { it.putParcelable(ARGS, this) }
@@ -42,9 +46,8 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
 
         fun newInstance(
             userInfo: UserInfoModel,
-            onClick: () -> Unit
         ): UserFoundBottomSheet {
-            val args = Args(userInfo, onClick)
+            val args = Args(userInfo)
             return UserFoundBottomSheet().apply {
                 arguments = args.toBundle()
             }
