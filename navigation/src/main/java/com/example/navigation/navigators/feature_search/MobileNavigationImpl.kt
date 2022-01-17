@@ -13,9 +13,10 @@ class MobileNavigationImpl(
 
     override fun goToUserProfile(userId: Long) {
         fragment.navigate(
-            R.id.userProfileFragment
+            R.id.action_navigation_dashboard_to_userProfileFragment,
+            bundleOf(MobileNavigation.ARG_USER_ID to userId)
         )
-        bundleOf(MobileNavigation.ARG_USER_ID to userId)
+
     }
 
 

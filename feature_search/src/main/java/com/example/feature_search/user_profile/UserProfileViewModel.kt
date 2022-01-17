@@ -16,15 +16,10 @@ class UserProfileViewModel : ViewModel(), KoinComponent {
 
     private var userID: Long = 36412487
 
-  private fun setUserId(id: Long) {
-        userID = id
-    }
 
-
-    fun getSingleUser(idUser: Long) {
-        setUserId(idUser)
+    fun getSingleUser(id: Long?) {
         getSingleUserLocalUseCase(
-            params = GetSingleUserLocalUseCase.Params(userID),
+            params = GetSingleUserLocalUseCase.Params(id ?: userID),
             onSuccess = {
                 _getSingleUserViewState.postSuccess(it)
             },

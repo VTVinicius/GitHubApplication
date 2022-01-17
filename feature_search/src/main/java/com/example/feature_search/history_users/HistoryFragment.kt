@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.base_feature.core.BaseFragment
 import com.example.domain.model.github.GitUserModel
 import com.example.feature_search.databinding.FragmentHistoryBinding
-import com.example.uikit.extensions.layoutInflater
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.bind
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 

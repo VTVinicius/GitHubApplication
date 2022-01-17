@@ -15,7 +15,7 @@ import kotlinx.parcelize.Parcelize
 class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
 
     private val args by lazy { fromBundle(arguments) }
-    private val navigation : MobileNavigation by navDirections()
+
 
 
     override fun onCreateViewBinding(inflater: LayoutInflater): BottomSheetUserInfoBinding =
@@ -25,9 +25,7 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
     override fun setupView() {
         super.setupView()
 
-        val userId: Long = args.userInfo!!.id
-
-        onClick(userId)
+        onClick()
 
         binding.imgProfilePicture.loadUrlWithCircular(args.userInfo?.avatar_url)
         binding.tvUserLogin.text = args.userInfo?.login
@@ -37,13 +35,14 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
     }
 
 
-    private fun onClick(userID: Long){
+    private fun onClick(){
         binding.btnClose.setOnClickListener {
             dismiss()
         }
 
         binding.btnSeeMore.setOnClickListener {
-        navigation.goToUserProfile(userID)
+            args.onClick?.invoke()
+            dismiss()
         }
 
     }
@@ -52,6 +51,7 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
         @Parcelize
         data class Args(
             var userInfo: UserInfoModel? = null,
+            var onClick: (() -> Unit)? = null
 
             ) : Parcelable {
             fun toBundle() = Bundle().also { it.putParcelable(ARGS, this) }
@@ -60,14 +60,15 @@ class UserFoundBottomSheet :  BaseBottomSheet<BottomSheetUserInfoBinding>(){
                 private const val ARGS = "args"
 
                 fun fromBundle(args: Bundle?) =
-                    args?.getParcelable(ARGS) ?: Args()
+                    args?.getParcelable(ARGS) ?: UserFoundBottomSheet.Companion.Args()
             }
         }
 
         fun newInstance(
             userInfo: UserInfoModel,
+            onClick: () -> Unit
         ): UserFoundBottomSheet {
-            val args = Args(userInfo)
+            val args = Args(userInfo, onClick)
             return UserFoundBottomSheet().apply {
                 arguments = args.toBundle()
             }

@@ -1,6 +1,9 @@
 package com.example.feature_search.user_profile
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.delegateproperties.navDirections
@@ -18,19 +21,14 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     override fun onCreateViewBinding(inflater: LayoutInflater): FragmentUserProfileBinding =
         FragmentUserProfileBinding.inflate(inflater)
 
+
     override fun setupView() {
         super.setupView()
 
-        arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let {
-            viewModel.getSingleUser(it)
-            onStateLoading()
-        }
-
-        hideLoading()
-
-
+        arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
 
     }
+
 
     override fun addObservers(owner: LifecycleOwner) {
         super.addObservers(owner)
