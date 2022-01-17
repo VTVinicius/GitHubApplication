@@ -9,8 +9,7 @@
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="inactive">#A0B4D1</color>
-    <color name="background">#F3F8FF</color>
+    <color name="inactive">#A8ADB3</color>
     <color name="title_text">#323F4B</color>
     <color name="secondary_text">#556F97</color>
     <color name="input_text">#696969</color>
