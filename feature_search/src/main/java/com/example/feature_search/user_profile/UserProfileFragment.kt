@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.delegateproperties.navDirections
+import com.example.base_feature.utils.extensions.hideActionBar
 import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.databinding.FragmentUserProfileBinding
 import com.example.uikit.extensions.loadUrl
@@ -24,6 +25,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
 
     override fun setupView() {
         super.setupView()
+         hideActionBar()
 
         arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
 
@@ -38,7 +40,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     private fun loadUserObserver(owner: LifecycleOwner) {
         viewModel.getSingleUserViewState.onPostValue(owner,
             onSuccess = { model ->
-                binding.imgProfilePicture.loadUrl(model.gitUserData.user.avatar_url)
+                binding.imgProfilePicture.loadUrlWithCircular(model.gitUserData.user.avatar_url)
                 binding.tvBio.text = model.gitUserData.user.bio ?: ""
                 binding.tvLogin.text = model.gitUserData.user.login
                 binding.tvName.text = model.gitUserData.user.name ?: ""
