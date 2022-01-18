@@ -30,6 +30,5 @@ class HistoryViewModel : ViewModel(), KoinComponent {
             }
         )
     }
-
 }
 
