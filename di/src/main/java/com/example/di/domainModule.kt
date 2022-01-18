@@ -1,6 +1,7 @@
 package com.example.di
 
 import com.example.domain.core.ThreadContextProvider
+import com.example.domain.usecase.github.GetSingleUserLocalUseCase
 import com.example.domain.usecase.github.GetUsersLocalUseCase
 import com.example.domain.usecase.github.SaveGitUserUseCase
 import com.example.domain.usecase.github.SearchUserUseCase
@@ -27,6 +28,13 @@ val domainModule = module {
     }
     factory { (scope: CoroutineScope) ->
         GetUsersLocalUseCase (
+            scope = scope,
+            githubRepository = get()
+        )
+    }
+
+    factory { (scope: CoroutineScope) ->
+        GetSingleUserLocalUseCase (
             scope = scope,
             githubRepository = get()
         )

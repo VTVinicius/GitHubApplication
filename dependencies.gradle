@@ -5,10 +5,10 @@ ext {
             [configuration: "implementation", dependency: "$kotlinReflect"],
             [configuration: "implementation", dependency: "$androidKtxCore"],
             [configuration: "implementation", dependency: "$coroutine"],
-            [configuration: "implementation", dependency: "$koinScope"],
+            [configuration: "implementation", dependency: "$koinScope"]
     ]
 
-    appDependencies = commonsDependencies + [
+    appDependencies = commonsDependencies + testAppDependencies + [
             [configuration: "implementation", dependency: "$appCompat"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],
             [configuration: "implementation", dependency: "$lifecycleJava8"],
@@ -28,7 +28,7 @@ ext {
     intentDependencies = appDependencies + [
             [configuration: "implementation", dependency: "$navigationFragment"],
             [configuration: "implementation", dependency: "$navigationUi"],
-            [configuration: "implementation", dependency: "$gson"],
+            [configuration: "implementation", dependency: "$gson"]
     ]
 
     diDependencies = commonsDependencies + [
@@ -40,27 +40,27 @@ ext {
             [configuration: "implementation", dependency: "$retrofitCoroutine"],
             [configuration: "implementation", dependency: "$httpInterceptor"],
             [configuration: "implementation", dependency: "$gsonConvertFacotory"],
-            [configuration: "implementation", dependency: "$room"],
+            [configuration: "implementation", dependency: "$room"]
     ]
 
-    presentationDependencies = commonsDependencies + [
+    presentationDependencies = commonsDependencies + testPresentationDependencies + [
             [configuration: "implementation", dependency: "$koinViewModel"],
             [configuration: "implementation", dependency: "$appCompat"],
             [configuration: "implementation", dependency: "$viewModel"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],
             [configuration: "implementation", dependency: "$lifecycleXt"],
-            [configuration: "implementation", dependency: "$liveData"],
+            [configuration: "implementation", dependency: "$liveData"]
     ]
 
-    domainDependencies = commonsDependencies + [
+    domainDependencies = commonsDependencies + testDomainDependencies + [
             [configuration: "implementation", dependency: "$gson"]
     ]
 
-    dataDependencies = commonsDependencies + [
+    dataDependencies = commonsDependencies + testDataDependencies + [
             [configuration: "implementation", dependency: "$room"]
     ]
 
-    dataLocalDependencies = dataDependencies + [
+    dataLocalDependencies = dataDependencies + testDataLocalDependencies +[
             [configuration: "implementation", dependency: "$gson"],
             [configuration: "implementation", dependency: "$gsonConvertFacotory"],
             [configuration: "kapt", dependency: "$roomCompiler"],

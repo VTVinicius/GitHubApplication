@@ -34,7 +34,7 @@ ext {
     okhttpVersion = "4.6.0"
 
     //gson
-    gsonVersion = "2.8.6"
+    gsonVersion = "2.8.9"
 
     //material
     materialVersion = "1.4.0-rc01"
