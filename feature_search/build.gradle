@@ -10,5 +10,6 @@ dependencies {
     api project(':domain')
 
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
+    androidTestCommonsDependencies.forEach { add(it.configuration, it.dependency, it.option) }
 }
 

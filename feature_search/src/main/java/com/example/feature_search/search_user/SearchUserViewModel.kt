@@ -33,7 +33,7 @@ class SearchUserViewModel : ViewModel(), KoinComponent {
         )
     }
 
-    private fun saveUserLocal(user: SearchUserModel) {
+     fun saveUserLocal(user: SearchUserModel) {
         saveGitUserUseCase(
             params = SaveGitUserUseCase.Params(
                 GitUserModel(
@@ -51,6 +51,7 @@ class SearchUserViewModel : ViewModel(), KoinComponent {
 
     fun resetViewState(){
         _searchUserViewState.postNeutral()
+        _saveGitUserViewSate.postNeutral()
     }
 
 }
