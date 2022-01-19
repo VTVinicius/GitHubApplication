@@ -4,8 +4,8 @@ import com.example.base_feature.utils.extensions.*
 import com.example.domain.model.github.GitUserDataModel
 import com.example.domain.model.github.GitUserModel
 import com.example.domain.model.github.SearchUserModel
-import com.example.domain.usecase.github.SaveGitUserUseCase
-import com.example.domain.usecase.github.SearchUserUseCase
+import com.example.domain.usecase.github.search_user.SaveGitUserUseCase
+import com.example.domain.usecase.github.search_user.SearchUserUseCase
 import org.koin.core.KoinComponent
 
 class SearchUserViewModel : ViewModel(), KoinComponent {

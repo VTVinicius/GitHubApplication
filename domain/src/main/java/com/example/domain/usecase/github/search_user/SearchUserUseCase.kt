@@ -1,4 +1,4 @@
-package com.example.domain.usecase.github
+package com.example.domain.usecase.github.search_user
 
 import com.example.domain.core.UseCase
 import com.example.domain.exception.EmptyFieldException

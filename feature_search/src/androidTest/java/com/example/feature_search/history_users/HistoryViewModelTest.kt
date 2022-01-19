@@ -1,15 +1,9 @@
 package com.example.feature_search.history_users
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.base_feature.utils.extensions.assertNeutral
 import com.example.base_feature.utils.extensions.getOrAwaitValueAndAssert
-import com.example.base_feature.utils.extensions.useCase
 import com.example.domain.model.github.GitUserModel
-import com.example.domain.model.github.SearchUserModel
-import com.example.domain.usecase.github.GetUsersLocalUseCase
-import com.example.domain.usecase.github.SaveGitUserUseCase
-import com.example.domain.usecase.github.SearchUserUseCase
-import com.example.feature_search.search_user.SearchUserViewModel
+import com.example.domain.usecase.github.history.GetUsersLocalUseCase
 import io.mockk.every
 import io.mockk.invoke
 import io.mockk.mockk

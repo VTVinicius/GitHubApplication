@@ -1,10 +1,10 @@
 package com.example.di
 
 import com.example.domain.core.ThreadContextProvider
-import com.example.domain.usecase.github.GetSingleUserLocalUseCase
-import com.example.domain.usecase.github.GetUsersLocalUseCase
-import com.example.domain.usecase.github.SaveGitUserUseCase
-import com.example.domain.usecase.github.SearchUserUseCase
+import com.example.domain.usecase.github.user_profile.GetSingleUserLocalUseCase
+import com.example.domain.usecase.github.history.GetUsersLocalUseCase
+import com.example.domain.usecase.github.search_user.SaveGitUserUseCase
+import com.example.domain.usecase.github.search_user.SearchUserUseCase
 import kotlinx.coroutines.CoroutineScope
 import org.koin.dsl.module
 

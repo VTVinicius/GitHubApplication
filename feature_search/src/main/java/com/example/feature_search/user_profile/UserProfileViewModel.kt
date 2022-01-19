@@ -3,7 +3,7 @@ package com.example.feature_search.user_profile
 import androidx.lifecycle.ViewModel
 import com.example.base_feature.utils.extensions.*
 import com.example.domain.model.github.GitUserModel
-import com.example.domain.usecase.github.GetSingleUserLocalUseCase
+import com.example.domain.usecase.github.user_profile.GetSingleUserLocalUseCase
 import org.koin.core.KoinComponent
 
 class UserProfileViewModel : ViewModel(), KoinComponent {
