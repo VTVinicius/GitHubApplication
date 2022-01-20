@@ -8,4 +8,5 @@ interface MobileNavigation {
 
     fun goToUserProfile(userId: Long)
 
+
 }

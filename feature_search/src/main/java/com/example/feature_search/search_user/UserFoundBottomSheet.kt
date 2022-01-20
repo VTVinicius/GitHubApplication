@@ -4,9 +4,6 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.view.LayoutInflater
 import com.example.base_feature.core.BaseBottomSheet
-import com.example.base_feature.utils.delegateproperties.navDirections
-import com.example.feature_search.commom.navigation.FeatureSearchNavigation
-import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.search_user.UserFoundBottomSheet.Companion.Args.Companion.fromBundle
 import com.example.feature_search.databinding.BottomSheetUserInfoBinding
 import com.example.uikit.extensions.loadUrlWithCircular
