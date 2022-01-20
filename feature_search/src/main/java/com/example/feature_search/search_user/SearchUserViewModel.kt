@@ -4,8 +4,8 @@ import com.example.base_feature.utils.extensions.*
 import com.example.domain.model.github.GitUserDataModel
 import com.example.domain.model.github.GitUserModel
 import com.example.domain.model.github.SearchUserModel
-import com.example.domain.usecase.github.SaveGitUserUseCase
-import com.example.domain.usecase.github.SearchUserUseCase
+import com.example.domain.usecase.github.search_user.SaveGitUserUseCase
+import com.example.domain.usecase.github.search_user.SearchUserUseCase
 import org.koin.core.KoinComponent
 
 class SearchUserViewModel : ViewModel(), KoinComponent {
@@ -33,7 +33,7 @@ class SearchUserViewModel : ViewModel(), KoinComponent {
         )
     }
 
-    private fun saveUserLocal(user: SearchUserModel) {
+     fun saveUserLocal(user: SearchUserModel) {
         saveGitUserUseCase(
             params = SaveGitUserUseCase.Params(
                 GitUserModel(
@@ -51,6 +51,7 @@ class SearchUserViewModel : ViewModel(), KoinComponent {
 
     fun resetViewState(){
         _searchUserViewState.postNeutral()
+        _saveGitUserViewSate.postNeutral()
     }
 
 }
