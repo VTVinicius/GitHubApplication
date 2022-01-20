@@ -16,11 +16,6 @@ class GithubListUsersAdapter(
 ) : RecyclerView.Adapter<GithubListUsersAdapter.GithubListUsersViewHolder>() {
 
 
-
-    fun passUserId(id: Long){
-
-    }
-
     @SuppressLint("NotifyDataSetChanged")
     fun updateUserList(list: List<GitUserModel>) {
         this.list = list

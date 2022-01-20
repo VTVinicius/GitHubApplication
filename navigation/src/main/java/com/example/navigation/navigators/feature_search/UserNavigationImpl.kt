@@ -5,19 +5,16 @@ import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.commom.navigation.UserNavigation
 import com.example.navigation.R
 import com.example.navigation.utils.navigate
+import com.example.navigation.utils.popBackStack
 
 class UserNavigationImpl(
     val fragment: Fragment
-) : UserNavigation, MobileNavigation {
+) : UserNavigation {
 
     override fun goBackToSearch() {
-        fragment.navigate(
-            R.id.searchUserFragment
-        )
-    }
-
-    override fun goToUserProfile(userId: Long) {
-        TODO("Not yet implemented")
+        fragment.popBackStack(R.id.mobile_navigation, true)
+        fragment.navigate(R.id.homeFragment)
+        fragment.navigate(R.id.historyFragment)
     }
 
 }

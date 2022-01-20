@@ -6,23 +6,17 @@ import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.commom.navigation.UserNavigation
 import com.example.navigation.R
 import com.example.navigation.utils.navigate
+import com.example.navigation.utils.popBackStack
 
 class MobileNavigationImpl(
         val fragment: Fragment
-    ) : MobileNavigation, UserNavigation{
+    ) : MobileNavigation{
 
     override fun goToUserProfile(userId: Long) {
         fragment.navigate(
-            R.id.userProfileFragment,
+            R.id.search_navigation,
             bundleOf(MobileNavigation.ARG_USER_ID to userId)
         )
-    }
-
-    override fun goBackToSearch() {
-        fragment.navigate(
-            R.id.searchUserFragment
-        )
-
     }
 
 
