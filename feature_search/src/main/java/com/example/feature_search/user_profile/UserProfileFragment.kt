@@ -8,7 +8,9 @@ import androidx.lifecycle.LifecycleOwner
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.delegateproperties.navDirections
 import com.example.base_feature.utils.extensions.hideActionBar
+import com.example.base_feature.utils.extensions.showActionBar
 import com.example.feature_search.commom.navigation.MobileNavigation
+import com.example.feature_search.commom.navigation.UserNavigation
 import com.example.feature_search.databinding.FragmentUserProfileBinding
 import com.example.uikit.extensions.loadUrl
 import com.example.uikit.extensions.loadUrlWithCircular
@@ -18,6 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
 
     private val viewModel: UserProfileViewModel by viewModel()
+    private val navigation: UserNavigation by navDirections()
 
     override fun onCreateViewBinding(inflater: LayoutInflater): FragmentUserProfileBinding =
         FragmentUserProfileBinding.inflate(inflater)
@@ -27,10 +30,22 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
         super.setupView()
          hideActionBar()
 
+
         arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
+
+        onClickFun()
 
     }
 
+
+    private fun onClickFun(){
+
+        binding.btnClose.setOnClickListener {
+            navigation.goBackToSearch()
+        }
+
+
+    }
 
     override fun addObservers(owner: LifecycleOwner) {
         super.addObservers(owner)

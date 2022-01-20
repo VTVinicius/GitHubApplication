@@ -2,15 +2,20 @@ package com.example.feature_search.history_users
 
 import android.view.LayoutInflater
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.NavDirections
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.base_feature.core.BaseFragment
+import com.example.base_feature.utils.delegateproperties.navDirections
+import com.example.base_feature.utils.extensions.showActionBar
 import com.example.domain.model.github.GitUserModel
+import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.databinding.FragmentHistoryBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private val viewModel: HistoryViewModel by viewModel()
+    private val navigation : MobileNavigation by navDirections()
 
     private lateinit var githubListUsersAdapter: GithubListUsersAdapter
 
@@ -21,6 +26,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     override fun setupView() {
         super.setupView()
+        showActionBar()
 
         getUsersLocal()
         setUpUserCards()
@@ -35,11 +41,15 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private fun setUpUserCards() {
         onStateLoading()
-        githubListUsersAdapter = GithubListUsersAdapter(listOf()) //, this::onItemClick
+        githubListUsersAdapter = GithubListUsersAdapter(listOf(), this::onItemClick)
         binding.usersListRecyclerView.apply {
             adapter = githubListUsersAdapter
             layoutManager = LinearLayoutManager(context)
         }
+    }
+
+    private fun onItemClick(userId: Long) {
+        navigation.goToUserProfile(userId)
     }
 
 //    private fun onItemClick(userDetails: GitUserModel) {
@@ -68,6 +78,10 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private fun updateUserList(list: List<GitUserModel>) {
         githubListUsersAdapter.updateUserList(list = list)
+    }
+
+    fun selectUser(id: Long){
+
     }
 
 //

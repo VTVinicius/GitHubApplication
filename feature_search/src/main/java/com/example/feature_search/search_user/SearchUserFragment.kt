@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.delegateproperties.navDirections
 import com.example.base_feature.utils.extensions.hideKeyboard
+import com.example.base_feature.utils.extensions.showActionBar
 import com.example.base_feature.utils.extensions.showBottomSheet
 import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.databinding.FragmentSearchBinding
@@ -20,6 +21,7 @@ class SearchUserFragment : BaseFragment<FragmentSearchBinding>() {
 
     override fun setupView() {
         super.setupView()
+        showActionBar()
 
         binding.btnClick.setOnClickListener {
             val userName = binding.etUsernameInputText.text.toString()

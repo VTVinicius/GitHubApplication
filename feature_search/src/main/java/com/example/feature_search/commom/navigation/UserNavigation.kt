@@ -1,5 +1,8 @@
 package com.example.feature_search.commom.navigation
 
-interface FeatureSearchNavigation {
+interface UserNavigation {
+
+
+   fun goBackToSearch()
 
 }
