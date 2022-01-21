@@ -5,7 +5,6 @@ class ViewState<T>(
     val data: T? = null,
     val error: Throwable? = null
 ) {
-
     fun stateHandler(
         onSuccess: (T) -> Unit = {},
         onError: (Throwable) -> Unit = {},
@@ -22,7 +21,6 @@ class ViewState<T>(
     enum class Status {
         SUCCESS, ERROR, LOADING, NEUTRAL
     }
-
 }
 
 fun <T> ViewState<T>?.isSuccess() = this?.status?.equals(ViewState.Status.SUCCESS) ?: false

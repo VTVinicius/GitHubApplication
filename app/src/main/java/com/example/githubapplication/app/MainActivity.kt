@@ -1,9 +1,7 @@
 package com.example.githubapplication.app
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -12,6 +10,7 @@ import com.example.base_feature.utils.extensions.setGone
 import com.example.base_feature.utils.extensions.setVisible
 import com.example.githubapplication.R
 import com.example.githubapplication.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,16 +26,14 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-       val navController = navHostFragment.navController.apply {
-           addOnDestinationChangedListener { _, _, arguments ->
-               when (arguments?.getBoolean("ShowBottomNavigation", false)) {
-                   true -> navView.setVisible()
-                   else -> navView.setGone()
-               }
-           }
-       }
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        val navController = navHostFragment.navController.apply {
+            addOnDestinationChangedListener { _, _, arguments ->
+                when (arguments?.getBoolean("ShowBottomNavigation", false)) {
+                    true -> navView.setVisible()
+                    else -> navView.setGone()
+                }
+            }
+        }
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment, R.id.searchUserFragment, R.id.historyFragment

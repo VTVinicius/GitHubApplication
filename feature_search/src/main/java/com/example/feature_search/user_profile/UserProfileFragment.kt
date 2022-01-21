@@ -1,18 +1,13 @@
 package com.example.feature_search.user_profile
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.delegateproperties.navDirections
 import com.example.base_feature.utils.extensions.hideActionBar
-import com.example.base_feature.utils.extensions.showActionBar
 import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.commom.navigation.UserNavigation
 import com.example.feature_search.databinding.FragmentUserProfileBinding
-import com.example.uikit.extensions.loadUrl
 import com.example.uikit.extensions.loadUrlWithCircular
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,23 +23,17 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
 
     override fun setupView() {
         super.setupView()
-         hideActionBar()
-
+        hideActionBar()
 
         arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
-
         onClickFun()
-
     }
 
 
-    private fun onClickFun(){
-
+    private fun onClickFun() {
         binding.btnClose.setOnClickListener {
             navigation.goBackToSearch()
         }
-
-
     }
 
     override fun addObservers(owner: LifecycleOwner) {
@@ -59,15 +48,10 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
                 binding.tvBio.text = model.gitUserData.user.bio ?: ""
                 binding.tvLogin.text = model.gitUserData.user.login
                 binding.tvName.text = model.gitUserData.user.name ?: ""
-
             },
             onError = {
                 showErrorDialog()
             }
         )
-
-
     }
-
-
 }

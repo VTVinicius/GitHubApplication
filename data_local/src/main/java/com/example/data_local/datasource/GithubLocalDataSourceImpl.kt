@@ -27,11 +27,10 @@ class GithubLocalDataSourceImpl(
         }
     }
 
-    override fun getSingleUserData(userID: Long): Flow<GitUserModel>  = flow{
+    override fun getSingleUserData(userID: Long): Flow<GitUserModel> = flow {
         gitUserDao.getSingleUser(userID).collect {
             emit(it.toDomain())
 
         }
     }
-
 }

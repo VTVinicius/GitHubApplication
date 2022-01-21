@@ -13,13 +13,15 @@ class GithubRepositoryImpl(
     private val githubLocalDataSource: GithubLocalDataSource
 ) : GithubRepository {
 
+    //Remote
     override fun searchUser(username: String) = githubRemoteDataSource.searchUser(username)
 
 
+    //Local
     override fun getGitUsers(): Flow<List<GitUserModel>> = githubLocalDataSource.getGitUserData()
 
     override fun saveGitUserData(gitUserModel: GitUserModel) =
         flow { emit(githubLocalDataSource.saveGitUserData(gitUserModel)) }
 
     override fun getSingleUser(userID: Long) = githubLocalDataSource.getSingleUserData(userID)
-    }
+}

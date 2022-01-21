@@ -1,7 +1,7 @@
 package com.example.domain.usecase.history
 
-import com.example.domain.mocks.testFlow
-import com.example.domain.mocks.testModule
+import com.example.domain.factory.testFlow
+import com.example.domain.factory.testModule
 import com.example.domain.model.github.GitUserModel
 import com.example.domain.repository.github.GithubRepository
 import com.example.domain.usecase.github.history.GetUsersLocalUseCase

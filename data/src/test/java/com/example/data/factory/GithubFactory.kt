@@ -14,9 +14,9 @@ object GithubFactory {
         name = "name"
     )
 
+    val DUMMY_LIST_GIT_USER_MODEL =
+        listOf(GitUserModel(gitUserData = GitUserDataModel(user = DUMMY_SEARCH_USER_MODEL)))
 
-    val DUMMY_LIST_GIT_USER_MODEL = listOf(GitUserModel(gitUserData = GitUserDataModel(user = DUMMY_SEARCH_USER_MODEL)))
-
-    val DUMMY_GIT_USER_MODEL = GitUserModel(gitUserData = GitUserDataModel(user = DUMMY_SEARCH_USER_MODEL))
-
+    val DUMMY_GIT_USER_MODEL =
+        GitUserModel(gitUserData = GitUserDataModel(user = DUMMY_SEARCH_USER_MODEL))
 }

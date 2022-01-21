@@ -1,6 +1,6 @@
 package com.example.data_remote.mapper.github
 
-import com.example.data_remote.mapper.user.DataRemoteMapper
+import com.example.data_remote.mapper.DataRemoteMapper
 import com.example.data_remote.model.search_user.SearchUserResponse
 import com.example.domain.model.github.SearchUserModel
 

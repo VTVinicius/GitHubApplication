@@ -22,7 +22,6 @@ class SearchUserViewModelTest {
 
     private lateinit var viewModel: SearchUserViewModel
 
-
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
@@ -60,7 +59,10 @@ class SearchUserViewModelTest {
     private fun stubSearchUserUseCaseSuccess() {
         every {
             searchUserUseCase(
-                params = SearchUserUseCase.Params("mockk"), onError = any(), onSuccess = captureLambda())
+                params = SearchUserUseCase.Params("mockk"),
+                onError = any(),
+                onSuccess = captureLambda()
+            )
         } answers {
             lambda<(SearchUserModel) -> Unit>().invoke(SearchUserModel())
         }
@@ -69,7 +71,8 @@ class SearchUserViewModelTest {
     private fun stubSearchUserUseCaseError() {
         every {
             searchUserUseCase(
-                params = any(), onError = captureLambda(), onSuccess = any())
+                params = any(), onError = captureLambda(), onSuccess = any()
+            )
         } answers {
             lambda<(Throwable) -> Unit>().invoke(Throwable())
         }
@@ -95,6 +98,7 @@ class SearchUserViewModelTest {
             lambda<(Unit) -> Unit>().invoke(Unit)
         }
     }
+
     private fun stubSaveGitUserUseCaseError() {
         every {
             saveGitUserUseCase(

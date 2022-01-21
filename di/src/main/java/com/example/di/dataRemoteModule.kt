@@ -5,7 +5,6 @@ import com.example.data_remote.datasource.GithubRemoteDataSourceImpl
 import com.example.data_remote.service.GithubWebService
 import com.example.data_remote.utils.GITHUB_API_URL
 import com.example.data_remote.utils.WebServiceFactory
-import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val dataRemoteModule = module {

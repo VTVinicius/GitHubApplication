@@ -72,7 +72,8 @@ suspend fun <T> Flow<T>.suspendCollect(
     }
 }
 
-fun <T> Flow<T>.asMutableLiveData() = asLiveData() as MutableLiveData<com.example.base_feature.core.ViewState<T>>
+fun <T> Flow<T>.asMutableLiveData() =
+    asLiveData() as MutableLiveData<com.example.base_feature.core.ViewState<T>>
 
 fun <T> Result<T>.collect(onFailure: (Throwable) -> Unit = {}, onSuccess: (T) -> Unit) {
     val success = getOrNull()

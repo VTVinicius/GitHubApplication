@@ -12,10 +12,10 @@ interface GithubWebService {
     @GET(GITHUB_USER_BASE)
     suspend fun searchUser(
         @Path(GITHUB_USERNAME) username: String
-    ) : SearchUserResponse
+    ): SearchUserResponse
 
     object GithubConstants {
-        const val GITHUB_USERNAME = "vvv"
+        const val GITHUB_USERNAME = "mock"
         const val GITHUB_USER_BASE = "$GITHUB_API_URL/users/{$GITHUB_USERNAME}"
     }
 }

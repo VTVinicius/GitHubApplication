@@ -18,5 +18,4 @@ class Converter {
     fun userDataToString(gitUserData: GitUserDataLocal): String {
         return Gson().toJson(gitUserData)
     }
-
 }

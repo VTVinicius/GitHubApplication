@@ -26,7 +26,6 @@ interface ViewStateListener {
         errorBottomSheetAction: (() -> Unit)? = null,
         showDataSourceException: Boolean = true
     ) {
-
         stateHandler(
             onSuccess = {
                 hideLoading()
@@ -85,5 +84,4 @@ interface ViewStateListener {
             it.handle(onError, onLoading, onComplete, onSuccess, errorBottomSheetAction)
         }
     }
-
 }

@@ -56,5 +56,4 @@ class GithubRemoteDataSourceImplTest {
             (githubWebService.searchUser("mock"))
         } returns response
     }
-
 }

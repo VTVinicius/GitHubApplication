@@ -7,6 +7,6 @@ import com.example.data_local.database.model.GitUserLocal
 
 @Database(entities = [GitUserLocal::class], version = 1)
 @TypeConverters(Converter::class)
-abstract class GithubDatabase : RoomDatabase(){
-    abstract fun gitUserDao() : GitUserDao
+abstract class GithubDatabase : RoomDatabase() {
+    abstract fun gitUserDao(): GitUserDao
 }

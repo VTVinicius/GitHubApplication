@@ -1,4 +1,4 @@
-package com.example.domain.mocks
+package com.example.domain.factory
 
 import com.example.domain.model.github.GitUserDataModel
 import com.example.domain.model.github.GitUserModel
@@ -6,7 +6,7 @@ import com.example.domain.model.github.SearchUserModel
 
 object GithubFactory {
 
-    val DUMMY_SEARCH_USER_MODEL = SearchUserModel(
+    private val DUMMY_SEARCH_USER_MODEL = SearchUserModel(
         id = 1,
         avatar_url = "url",
         login = "login",
@@ -19,5 +19,5 @@ object GithubFactory {
     val DUMMY_GIT_USER_MODEL = GitUserModel(gitUserData = GitUserDataModel(DUMMY_SEARCH_USER_MODEL))
 
 
-    val DUMMY_USERID_VALUE : Long = 10
+    const val DUMMY_USERID_VALUE: Long = 10
 }

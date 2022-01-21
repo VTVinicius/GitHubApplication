@@ -1,7 +1,6 @@
 package com.example.data_local.database
 
 import androidx.room.*
-import com.example.data_local.database.model.GitUserDataLocal
 import com.example.data_local.database.model.GitUserLocal
 import kotlinx.coroutines.flow.Flow
 
@@ -10,7 +9,6 @@ interface GitUserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUser(gitUser: GitUserLocal)
-
 
     @Query("SELECT * FROM GitUsersTable")
     fun getAll(): Flow<List<GitUserLocal>>
@@ -23,5 +21,4 @@ interface GitUserDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateUser(gitUser: GitUserLocal)
-
 }
