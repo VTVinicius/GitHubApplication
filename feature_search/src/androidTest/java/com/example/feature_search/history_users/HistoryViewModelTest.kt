@@ -17,9 +17,7 @@ import org.koin.dsl.module
 
 class HistoryViewModelTest {
 
-
     private lateinit var viewModel: HistoryViewModel
-
 
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
@@ -41,7 +39,6 @@ class HistoryViewModelTest {
         stopKoin()
     }
 
-
     @Test
     fun searchUserUseCaseWhenReturnSuccessOrError() {
         stubGetUsersLocalUseCaseSuccess()
@@ -51,7 +48,6 @@ class HistoryViewModelTest {
         stubGetUsersLocalUseCaseError()
         viewModel.getUsersLocal()
         viewModel.getUsersLocalViewState.getOrAwaitValueAndAssert(false)
-
     }
 
     private fun stubGetUsersLocalUseCaseSuccess() {

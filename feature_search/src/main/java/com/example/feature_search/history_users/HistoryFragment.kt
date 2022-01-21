@@ -2,7 +2,6 @@ package com.example.feature_search.history_users
 
 import android.view.LayoutInflater
 import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.NavDirections
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.base_feature.core.BaseFragment
 import com.example.base_feature.utils.delegateproperties.navDirections
@@ -15,13 +14,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
 
     private val viewModel: HistoryViewModel by viewModel()
-    private val navigation : MobileNavigation by navDirections()
+    private val navigation: MobileNavigation by navDirections()
 
     private lateinit var githubListUsersAdapter: GithubListUsersAdapter
 
     override fun onCreateViewBinding(inflater: LayoutInflater): FragmentHistoryBinding =
         FragmentHistoryBinding.inflate(inflater)
-
 
     override fun setupView() {
         super.setupView()
@@ -52,7 +50,6 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
     }
 
     private fun listUsersObserver(owner: LifecycleOwner) {
-
         viewModel.getUsersLocalViewState.onPostValue(owner,
             onSuccess = {
                 updateUserList(it)
@@ -66,5 +63,4 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>() {
     private fun updateUserList(list: List<GitUserModel>) {
         githubListUsersAdapter.updateUserList(list = list)
     }
-
 }

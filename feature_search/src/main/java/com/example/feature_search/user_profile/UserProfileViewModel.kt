@@ -14,12 +14,10 @@ class UserProfileViewModel : ViewModel(), KoinComponent {
 
     val getSingleUserViewState = _getSingleUserViewState.asLiveData()
 
-    private var userID: Long = 36412487
-
 
     fun getSingleUser(id: Long?) {
         getSingleUserLocalUseCase(
-            params = GetSingleUserLocalUseCase.Params(id ?: userID),
+            params = GetSingleUserLocalUseCase.Params(id!!),
             onSuccess = {
                 _getSingleUserViewState.postSuccess(it)
             },
@@ -28,6 +26,5 @@ class UserProfileViewModel : ViewModel(), KoinComponent {
             }
         )
     }
-
 }
 
