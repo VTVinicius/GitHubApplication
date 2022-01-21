@@ -81,40 +81,40 @@
                     app:srcCompat="@drawable/ic_icon_1" />
 
                 <TextView
-                    android:id="@+id/tvNumberFollows"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="5"
-                    app:layout_constraintStart_toEndOf="@+id/icon_followers"
-                    app:layout_constraintTop_toTopOf="@+id/icon_followers" />
-
-                <TextView
-                    android:id="@+id/tvFollows"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Seguidores"
-                    app:layout_constraintStart_toEndOf="@+id/tvNumberFollows"
-                    app:layout_constraintTop_toTopOf="@+id/tvNumberFollows" />
-
-                <TextView
                     android:id="@+id/tvNumberFollowers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="5"
-                    app:layout_constraintStart_toEndOf="@+id/tvFollows"
-                    app:layout_constraintTop_toTopOf="@+id/tvFollows" />
+                    android:layout_marginStart="4dp"
+                    android:text="0"
+                    app:layout_constraintStart_toEndOf="@+id/icon_followers"
+                    app:layout_constraintTop_toTopOf="@+id/icon_followers" />
 
                 <TextView
                     android:id="@+id/tvFollowers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="Seguindo"
+                    android:text="Seguidores"
                     app:layout_constraintStart_toEndOf="@+id/tvNumberFollowers"
                     app:layout_constraintTop_toTopOf="@+id/tvNumberFollowers" />
+
+                <TextView
+                    android:id="@+id/tvNumberFollowing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="0"
+                    app:layout_constraintStart_toEndOf="@+id/tvFollowers"
+                    app:layout_constraintTop_toTopOf="@+id/tvFollowers" />
+
+                <TextView
+                    android:id="@+id/tvFollows"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Seguindo"
+                    app:layout_constraintStart_toEndOf="@+id/tvNumberFollowing"
+                    app:layout_constraintTop_toTopOf="@+id/tvNumberFollowing" />
 
                 <TextView
                     android:id="@+id/tvLogin"

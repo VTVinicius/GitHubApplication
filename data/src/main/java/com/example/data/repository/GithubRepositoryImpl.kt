@@ -3,6 +3,7 @@ package com.example.data.repository
 import com.example.data.datasource.local.GithubLocalDataSource
 import com.example.data.datasource.remote.GithubRemoteDataSource
 import com.example.domain.model.github.GitUserModel
+import com.example.domain.model.github.SearchUserModel
 import com.example.domain.repository.github.GithubRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -15,6 +16,10 @@ class GithubRepositoryImpl(
 
     //Remote
     override fun searchUser(username: String) = githubRemoteDataSource.searchUser(username)
+
+    override fun getUserFollowers(username: String) = githubRemoteDataSource.getUserFollowers(username)
+
+    override fun getUserFollowing(username: String) = githubRemoteDataSource.getUserFollowing(username)
 
 
     //Local
