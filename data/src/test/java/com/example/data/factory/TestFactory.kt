@@ -12,7 +12,6 @@ fun <R> Flow<R>.testFlow(test: R.() -> Unit) {
     }
 }
 
-
 fun <T> catchError(call: () -> Flow<T>, onError: Throwable.() -> Unit) = runBlocking {
     try {
         call().collect {

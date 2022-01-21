@@ -9,14 +9,14 @@ import kotlinx.coroutines.CoroutineScope
 class SaveGitUserUseCase(
     scope: CoroutineScope,
     private val githubRepository: GithubRepository
-    ) : UseCase<Unit, SaveGitUserUseCase.Params>(scope) {
+) : UseCase<Unit, SaveGitUserUseCase.Params>(scope) {
 
-        override fun run(params: Params?) = when (params) {
-            null -> throw MissingParamsException()
-            else -> githubRepository.saveGitUserData(params.user)
-        }
-
-        data class Params(
-            val user: GitUserModel
-        )
+    override fun run(params: Params?) = when (params) {
+        null -> throw MissingParamsException()
+        else -> githubRepository.saveGitUserData(params.user)
     }
+
+    data class Params(
+        val user: GitUserModel
+    )
+}

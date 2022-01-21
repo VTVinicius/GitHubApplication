@@ -1,4 +1,4 @@
-package com.example.domain.mocks
+package com.example.domain.factory
 
 import com.example.domain.core.ThreadContextProvider
 import kotlinx.coroutines.flow.Flow

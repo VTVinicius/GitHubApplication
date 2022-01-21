@@ -23,5 +23,4 @@ open class BaseFullScreenDialog : BaseDialogFragment() {
             ViewGroup.LayoutParams.MATCH_PARENT
         )
     }
-
 }

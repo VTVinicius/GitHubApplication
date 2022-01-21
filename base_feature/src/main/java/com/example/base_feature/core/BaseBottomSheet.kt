@@ -40,7 +40,6 @@ abstract class BaseBottomSheet<Binding : ViewBinding> : BottomSheetDialogFragmen
     protected val binding: Binding
         get() = _binding!!
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addObservers(viewLifecycleOwner)
@@ -85,6 +84,5 @@ abstract class BaseBottomSheet<Binding : ViewBinding> : BottomSheetDialogFragmen
     override fun handleNoNetworkConnectionException(action: (() -> Unit)?) {
         return
     }
-
 }
 

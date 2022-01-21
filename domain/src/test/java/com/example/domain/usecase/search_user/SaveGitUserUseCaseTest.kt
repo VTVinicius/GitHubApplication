@@ -1,13 +1,10 @@
 package com.example.domain.usecase.search_user
 
 import com.example.domain.exception.MissingParamsException
-import com.example.domain.mocks.GithubFactory.DUMMY_GIT_USER_MODEL
-import com.example.domain.mocks.GithubFactory.DUMMY_SEARCH_USER_MODEL
-import com.example.domain.mocks.testFlow
-import com.example.domain.mocks.testModule
-import com.example.domain.model.github.GitUserModel
+import com.example.domain.factory.GithubFactory.DUMMY_GIT_USER_MODEL
+import com.example.domain.factory.testFlow
+import com.example.domain.factory.testModule
 import com.example.domain.repository.github.GithubRepository
-import com.example.domain.usecase.github.history.GetUsersLocalUseCase
 import com.example.domain.usecase.github.search_user.SaveGitUserUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -81,6 +78,4 @@ class SaveGitUserUseCaseTest : KoinTest {
     private fun stubOnError() {
         whenever(repository.saveGitUserData(DUMMY_GIT_USER_MODEL)).thenThrow(Exception())
     }
-
-
 }

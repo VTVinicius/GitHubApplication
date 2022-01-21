@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.Flow
 
 interface GithubRepository {
 
-    fun searchUser(username: String) : Flow<SearchUserModel>
+    fun searchUser(username: String): Flow<SearchUserModel>
 
     fun getGitUsers(): Flow<List<GitUserModel>>
-    fun saveGitUserData(gitUserModel: GitUserModel) : Flow<Unit>
+    fun saveGitUserData(gitUserModel: GitUserModel): Flow<Unit>
     fun getSingleUser(userID: Long): Flow<GitUserModel>
 
 }

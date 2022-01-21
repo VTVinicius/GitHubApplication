@@ -1,16 +1,12 @@
 package com.example.uikit.list_github_user
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.ImageView
-import android.widget.LinearLayout
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.uikit.R
 import com.example.uikit.databinding.CardGithubUserBinding
 import com.example.uikit.extensions.layoutInflater
-import kotlin.math.max
 
 open class GithubListUsers @JvmOverloads constructor(
     context: Context,
@@ -23,7 +19,6 @@ open class GithubListUsers @JvmOverloads constructor(
         CardGithubUserBinding.inflate(context.layoutInflater, this, false)
     }
 
-    var card = binding.layout
 
     var name: String? = ""
         set(value) {

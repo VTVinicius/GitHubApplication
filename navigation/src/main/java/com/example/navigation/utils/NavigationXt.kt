@@ -58,16 +58,17 @@ fun Fragment.navigate(directions: NavDirections, navigatorExtras: Navigator.Extr
     findNavController().safeNavigate(directions, navigatorExtras)
 
 
-fun setAnim() = NavOptions.Builder()
+fun setAnimSlideHorizontal() = NavOptions.Builder()
     .setEnterAnim(R.anim.nav_slide_enter_anim)
     .setExitAnim(R.anim.nav_slide_exit_anim)
-    .setPopEnterAnim(R.anim.nav_slide_pop_enter_anim)
-    .setPopExitAnim(R.anim.nav_slide_pop_exit_anim)
+    .build()
+
+fun setAnimSlideVerticalUp() = NavOptions.Builder()
+    .setEnterAnim(R.anim.nav_slide_up_enter_anim)
+    .setExitAnim(R.anim.nav_slide_down_enter_anim)
     .build()
 
 fun setAnimWithPopUpFragment(destination: Int) = NavOptions.Builder()
-    .setEnterAnim(R.anim.nav_slide_enter_anim)
-    .setExitAnim(R.anim.nav_slide_exit_anim)
     .setPopEnterAnim(R.anim.nav_slide_pop_enter_anim)
     .setPopExitAnim(R.anim.nav_slide_pop_exit_anim)
     .setPopUpTo(destination, false)

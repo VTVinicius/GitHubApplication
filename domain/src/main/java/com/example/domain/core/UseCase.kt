@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-abstract class UseCase<T, in Params>(private val scope: CoroutineScope): KoinComponent {
+abstract class UseCase<T, in Params>(private val scope: CoroutineScope) : KoinComponent {
     private val contextProvider: ThreadContextProvider by inject()
 
     abstract fun run(params: Params? = null): Flow<T>

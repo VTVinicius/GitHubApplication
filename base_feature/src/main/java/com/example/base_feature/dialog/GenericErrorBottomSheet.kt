@@ -10,14 +10,12 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import com.example.base_feature.core.BaseBottomSheet
 import com.example.base_feature.databinding.BottomSheetGenericErrorBinding
-import com.example.base_feature.utils.extensions.getDrawableResource
 import com.example.base_feature.utils.extensions.removeDrag
 import com.example.base_feature.utils.extensions.setStateExpanded
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.parcelize.Parcelize
 
 class GenericErrorBottomSheet : BaseBottomSheet<BottomSheetGenericErrorBinding>() {
-
 
     private val args by lazy { Args.fromBundle(arguments) }
     private var onButtonPressed: (() -> Unit)? = null
@@ -63,7 +61,8 @@ class GenericErrorBottomSheet : BaseBottomSheet<BottomSheetGenericErrorBinding>(
         val dialog = BottomSheetDialog(requireContext(), theme)
         dialog.setOnShowListener {
             val bottomSheetDialog = it as BottomSheetDialog
-            val parentLayout = bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val parentLayout =
+                bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             parentLayout?.let { view ->
                 setupFullHeight(view)
             }
@@ -121,5 +120,4 @@ class GenericErrorBottomSheet : BaseBottomSheet<BottomSheetGenericErrorBinding>(
             }
         }
     }
-
 }

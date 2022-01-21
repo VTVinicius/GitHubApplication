@@ -20,6 +20,7 @@ class LoadingDialog : BaseFullScreenDialog() {
             .setView(binding.root)
             .create()
     }
+
     override fun onStart() {
         super.onStart()
         if (!isLoadingVisible) binding.dialogProgressBar.setGone()

@@ -10,7 +10,7 @@ class MissingParamsException : ParamException("Params must not be null")
 class EmptyFieldException : ParamException("Campo obrigatório")
 
 
-data class Message (
+data class Message(
     val code: String,
     val text: String
 )

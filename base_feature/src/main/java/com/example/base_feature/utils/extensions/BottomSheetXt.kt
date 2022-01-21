@@ -26,7 +26,6 @@ fun BottomSheetDialogFragment.removeDrag() {
     }
 }
 
-
 fun BottomSheetDialogFragment.setExpandedOffset(@Px offset: Int) {
     dialog?.setOnShowListener {
         dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
@@ -45,9 +44,6 @@ fun BottomSheetDialogFragment.setFitToContents(fitToContents: Boolean) {
     }
 }
 
-/**
- * Resize the bottom sheet to have the screen size and change style to have marginTop
- * */
 fun BottomSheetDialogFragment.maximized() {
     dialog?.setOnShowListener {
         dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)

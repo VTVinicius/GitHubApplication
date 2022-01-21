@@ -49,7 +49,7 @@ fun ImageView.getRequestBuilder(
     return Glide.with(this)
         .load(url)
         .apply {
-            if(cleanCache) {
+            if (cleanCache) {
                 diskCacheStrategy(DiskCacheStrategy.NONE)
                 skipMemoryCache(true)
                 signature(ObjectKey(System.currentTimeMillis().toString()))

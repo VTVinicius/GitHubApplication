@@ -1,20 +1,20 @@
 package com.example.base_feature.utils.extensions
 
-import com.example.base_feature.core.ViewState
-import  com.example.base_feature.core.ViewState.Status.*
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
-import com.example.base_feature.core.isSuccess
+import com.example.base_feature.core.ViewState
+import com.example.base_feature.core.ViewState.Status.*
 import com.example.base_feature.core.isError
 import com.example.base_feature.core.isLoading
-import java.util.concurrent.TimeoutException
+import com.example.base_feature.core.isSuccess
 import com.example.base_feature.utils.extensions.*
 import com.example.base_feature.utils.watchers.EventLiveData
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 
 fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.postNeutral() {
     value = com.example.base_feature.core.ViewState(ViewState.Status.NEUTRAL, null, null)
@@ -29,7 +29,11 @@ fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.setError(err
 }
 
 fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.setError(message: String?) {
-    value = com.example.base_feature.core.ViewState(ViewState.Status.ERROR, null, RuntimeException(message))
+    value = com.example.base_feature.core.ViewState(
+        ViewState.Status.ERROR,
+        null,
+        RuntimeException(message)
+    )
 }
 
 fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.postSuccess(data: T) {
@@ -41,7 +45,13 @@ fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.postError(er
 }
 
 fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.postError(message: String?) {
-    postValue(com.example.base_feature.core.ViewState(ViewState.Status.ERROR, null, RuntimeException(message)))
+    postValue(
+        com.example.base_feature.core.ViewState(
+            ViewState.Status.ERROR,
+            null,
+            RuntimeException(message)
+        )
+    )
 }
 
 fun <T> MutableLiveData<com.example.base_feature.core.ViewState<T>>.postLoading() {
@@ -111,12 +121,12 @@ fun <T> LiveData<T>.getOrAwaitValue(
 
 @VisibleForTesting(otherwise = VisibleForTesting.NONE)
 fun <T> ViewState<T>.assert(isSuccessAssert: Boolean = true) {
-    if(this.status == ViewState.Status.LOADING) return
+    if (this.status == ViewState.Status.LOADING) return
     if (isSuccessAssert) {
         kotlin.assert(this.error == null)
         kotlin.assert(this.status == ViewState.Status.SUCCESS)
         kotlin.assert(this.data != null)
-    }  else {
+    } else {
         kotlin.assert(this.error != null)
         kotlin.assert(this.status == ViewState.Status.ERROR)
         kotlin.assert(this.data == null)

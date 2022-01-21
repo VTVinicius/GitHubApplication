@@ -43,11 +43,13 @@ fun Fragment.hideKeyboard(forceClose: Boolean = false) {
             ?: return
     val currentFocusedView = requireActivity().currentFocus ?: return
     if (forceClose) {
-        inputManager.hideSoftInputFromWindow(currentFocusedView.windowToken,
+        inputManager.hideSoftInputFromWindow(
+            currentFocusedView.windowToken,
             InputMethodManager.RESULT_UNCHANGED_SHOWN
         )
     } else {
-        inputManager.hideSoftInputFromWindow(currentFocusedView.windowToken,
+        inputManager.hideSoftInputFromWindow(
+            currentFocusedView.windowToken,
             InputMethodManager.HIDE_NOT_ALWAYS
         )
     }
@@ -64,7 +66,6 @@ fun Fragment.setNavigationIcon(id: Int?) {
 }
 
 fun Fragment.getFont(fontId: Int) = ResourcesCompat.getFont(requireContext(), fontId)
-
 
 fun Fragment.openWhatsapp(number: String, message: String = "") {
     val packageName = "com.whatsapp"
@@ -156,7 +157,6 @@ fun Fragment.addFlags(flags: List<Int>) {
 fun Fragment.clearFlags(flags: List<Int>) {
     flags.map { requireActivity().window.clearFlags(it) }
 }
-
 
 fun Fragment.addOnBackPressedCallback(
     owner: LifecycleOwner,

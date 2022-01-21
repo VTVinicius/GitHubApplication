@@ -13,7 +13,7 @@ open class BaseDialogFragment : DialogFragment(), LifecycleObserver {
     private var isLoading = false
     private var lifecycleOwner: LifecycleOwner? = null
 
-    fun show(fragmentContainer: BaseFragment<*>){
+    fun show(fragmentContainer: BaseFragment<*>) {
         show(
             fragmentContainer.childFragmentManager,
             tag
@@ -38,7 +38,7 @@ open class BaseDialogFragment : DialogFragment(), LifecycleObserver {
         }
     }
 
-    fun updateWindowFeature(){
+    fun updateWindowFeature() {
         dialog?.apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             window?.decorView?.setBackgroundResource(android.R.color.transparent)

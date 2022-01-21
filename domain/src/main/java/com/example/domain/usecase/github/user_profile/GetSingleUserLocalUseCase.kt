@@ -5,7 +5,6 @@ import com.example.domain.model.github.GitUserModel
 import com.example.domain.repository.github.GithubRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import java.lang.NullPointerException
 
 class GetSingleUserLocalUseCase(
     scope: CoroutineScope,
