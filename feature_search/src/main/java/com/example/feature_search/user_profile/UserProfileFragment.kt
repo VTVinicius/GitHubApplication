@@ -27,6 +27,9 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
 
         arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
         onClickFun()
+
+
+
     }
 
 
@@ -39,6 +42,9 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     override fun addObservers(owner: LifecycleOwner) {
         super.addObservers(owner)
         loadUserObserver(owner)
+        loadUserFollowersObserver(owner)
+        loadUserFollowingObserver(owner)
+
     }
 
     private fun loadUserObserver(owner: LifecycleOwner) {
@@ -48,10 +54,29 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
                 binding.tvBio.text = model.gitUserData.user.bio ?: ""
                 binding.tvLogin.text = model.gitUserData.user.login
                 binding.tvName.text = model.gitUserData.user.name ?: ""
+
+                viewModel.getUserFollowers(model.gitUserData.user.login ?: "")
+                viewModel.getUserFollowing(model.gitUserData.user.login ?: "")
+                onStateLoading()
             },
             onError = {
                 showErrorDialog()
             }
+        )
+    }
+
+    private fun loadUserFollowersObserver(owner: LifecycleOwner){
+        viewModel.getUserFollowersViewState.onPostValue(owner,
+        onSuccess = {
+           binding.tvNumberFollowers.text = it.size.toString()
+        }
+        )
+    }
+    private fun loadUserFollowingObserver(owner: LifecycleOwner){
+        viewModel.getUserFollowingViewState.onPostValue(owner,
+        onSuccess = {
+           binding.tvNumberFollowing.text = it.size.toString()
+        }
         )
     }
 }
