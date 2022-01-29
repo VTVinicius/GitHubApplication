@@ -36,7 +36,6 @@ class UserProfileViewModel : ViewModel(), KoinComponent {
         )
     }
 
-
     fun getUserFollowers(username: String) {
         getUserFollowersUseCase(
             params = GetUserFollowersUseCase.Params(username),
@@ -48,6 +47,7 @@ class UserProfileViewModel : ViewModel(), KoinComponent {
             }
         )
     }
+
     fun getUserFollowing(username: String) {
         getUserFollowingUseCase(
             params = GetUserFollowingUseCase.Params(username),
