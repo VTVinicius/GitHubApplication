@@ -2,6 +2,7 @@ package com.example.data_remote.datasource
 
 import com.example.data.datasource.remote.GithubRemoteDataSource
 import com.example.data_remote.mapper.github.GetUserFollowersMapper
+import com.example.data_remote.mapper.github.GetUserReposMapper
 import com.example.data_remote.mapper.github.SearchUserMapper
 import com.example.data_remote.service.GithubWebService
 import kotlinx.coroutines.flow.flow
@@ -26,10 +27,19 @@ class GithubRemoteDataSourceImpl(
             )
         )
     }
+
     override fun getUserFollowing(username: String) = flow {
         emit(
             GetUserFollowersMapper.listToDomainFollowing(
                 webService.getUserFollowing(username)
+            )
+        )
+    }
+
+    override fun getUserRepos(username: String) = flow {
+        emit(
+            GetUserReposMapper.listToDomainRepos(
+                webService.getUserRepos(username)
             )
         )
     }

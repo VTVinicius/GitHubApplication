@@ -1,6 +1,7 @@
 package com.example.data_remote.service
 
 import com.example.data_remote.model.search_user.SearchUserResponse
+import com.example.data_remote.model.user_repos.UserReposResponse
 import com.example.data_remote.service.GithubWebService.GithubConstants.GITHUB_FOLLOWERS
 import com.example.data_remote.service.GithubWebService.GithubConstants.GITHUB_FOLLOWING
 import com.example.data_remote.service.GithubWebService.GithubConstants.GITHUB_REPOS
@@ -30,7 +31,7 @@ interface GithubWebService {
     @GET(GITHUB_REPOS)
     suspend fun getUserRepos(
         @Path(GITHUB_USERNAME) username: String
-    ): List<SearchUserResponse>
+    ): List<UserReposResponse>
 
     object GithubConstants {
         const val GITHUB_USERNAME = "mock"
