@@ -7,6 +7,7 @@ import com.example.domain.usecase.github.search_user.SearchUserUseCase
 import com.example.domain.usecase.github.user_profile.GetSingleUserLocalUseCase
 import com.example.domain.usecase.github.user_profile.GetUserFollowersUseCase
 import com.example.domain.usecase.github.user_profile.GetUserFollowingUseCase
+import com.example.domain.usecase.github.user_repos.GetUserReposUseCase
 import kotlinx.coroutines.CoroutineScope
 import org.koin.dsl.module
 
@@ -50,6 +51,12 @@ val domainModule = module {
     }
     factory { (scope: CoroutineScope) ->
         GetUserFollowingUseCase(
+            scope = scope,
+            githubRepository = get()
+        )
+    }
+    factory { (scope: CoroutineScope) ->
+        GetUserReposUseCase(
             scope = scope,
             githubRepository = get()
         )

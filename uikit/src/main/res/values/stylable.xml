@@ -5,7 +5,12 @@
         <attr name="name" format="string" />
         <attr name="login" format="string" />
         <attr name="bio" format="string" />
+    </declare-styleable>
 
+    <declare-styleable name="ListRepos">
+        <attr name="nameUser" format="string" />
+        <attr name="description" format="string" />
+        <attr name="language" format="string" />
     </declare-styleable>
 
 </resources>

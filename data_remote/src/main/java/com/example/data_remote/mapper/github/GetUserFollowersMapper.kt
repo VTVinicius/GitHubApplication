@@ -14,7 +14,7 @@ object GetUserFollowersMapper : DataRemoteMapper<SearchUserResponse, SearchUserM
         name = data.name
     )
 
-    fun listToDomainFollowers(list: List<SearchUserResponse>?): List< SearchUserModel> {
+    fun listToDomainFollowers(list: List<SearchUserResponse>?): List<SearchUserModel> {
         val listResponse = mutableListOf<SearchUserModel>()
         list?.forEach {
             listResponse.add(
@@ -23,7 +23,7 @@ object GetUserFollowersMapper : DataRemoteMapper<SearchUserResponse, SearchUserM
         }
         return listResponse.toList()
     }
-    fun listToDomainFollowing(list: List<SearchUserResponse>?): List< SearchUserModel> {
+    fun listToDomainFollowing(list: List<SearchUserResponse>?): List<SearchUserModel> {
         val listResponse = mutableListOf<SearchUserModel>()
         list?.forEach {
             listResponse.add(

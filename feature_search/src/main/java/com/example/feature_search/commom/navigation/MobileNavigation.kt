@@ -7,4 +7,5 @@ interface MobileNavigation {
     }
 
     fun goToUserProfile(userId: Long)
+    fun goBackToUserProfile()
 }
