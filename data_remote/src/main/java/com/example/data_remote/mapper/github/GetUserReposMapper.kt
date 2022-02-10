@@ -10,18 +10,18 @@ object GetUserReposMapper : DataRemoteMapper<UserReposResponse, UserReposModel>(
         val listResponse = mutableListOf<UserReposModel>()
         list?.forEach {
             listResponse.add(
-                GetUserReposMapper.toDomain(it)
+                toDomain(it)
             )
         }
         return listResponse.toList()
     }
 
     override fun toDomain(data: UserReposResponse) = UserReposModel(
-        id = 0,
-        repoName = "",
-        url = "",
-        description = "",
-        language = ""
+        id = data.id,
+        repoName = data.repoName,
+        url = data.url,
+        description = data.description,
+        language = data.language
     )
 
 }
