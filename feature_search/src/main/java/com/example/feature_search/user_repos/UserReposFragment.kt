@@ -26,6 +26,11 @@ class UserReposFragment : BaseFragment<FragmentUserReposBinding>() {
         super.setupView()
         setUpReposCards()
 
+
+        binding.btnGoBack.setOnClickListener {
+            navigation.goBackToUserProfile()
+        }
+
         arguments?.getString(UserNavigation.ARG_USER_NAME)?.let { viewModel.getRepos(it) }
 
     }
