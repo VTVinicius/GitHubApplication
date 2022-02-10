@@ -6,5 +6,13 @@
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.example.feature_search.user_profile.UserProfileFragment"
-        android:label="UserProfileFragment" />
+        android:label="UserProfileFragment" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_userReposFragment"
+            app:destination="@id/userReposFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userReposFragment"
+        android:name="com.example.feature_search.user_repos.UserReposFragment"
+        android:label="UserReposFragment" />
 </navigation>

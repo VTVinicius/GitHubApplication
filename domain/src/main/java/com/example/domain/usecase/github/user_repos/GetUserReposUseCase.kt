@@ -6,13 +6,14 @@ import com.example.domain.exception.MissingParamsException
 import com.example.domain.model.github.UserReposModel
 import com.example.domain.repository.github.GithubRepository
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
 
 class GetUserReposUseCase(
     scope: CoroutineScope,
     private val githubRepository: GithubRepository
 ) : UseCase<List<UserReposModel>, GetUserReposUseCase.Params>(scope) {
 
-    override fun run(params: Params?) = when {
+    override fun run(params: Params?): Flow<List<UserReposModel>> = when {
         params == null -> throw MissingParamsException()
         params.username.isBlank() -> throw EmptyFieldException()
         else -> githubRepository.getUserRepos(params.username)

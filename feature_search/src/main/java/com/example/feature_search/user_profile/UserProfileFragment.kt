@@ -34,6 +34,10 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
         binding.btnClose.setOnClickListener {
             navigation.goBackToSearch()
         }
+
+        binding.reposCardView.setOnClickListener {
+            navigation.goToRepositories(binding.tvLogin.text.toString())
+        }
     }
 
     override fun addObservers(owner: LifecycleOwner) {
