@@ -24,8 +24,9 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     override fun setupView() {
         super.setupView()
         hideActionBar()
+            arguments?.getString(UserNavigation.ARG_USER_NAME)?.let { viewModel.getWebUser }
+            arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
 
-        arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
         onClickFun()
     }
 
@@ -38,10 +39,15 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
         binding.reposCardView.setOnClickListener {
             navigation.goToRepositories(binding.tvLogin.text.toString())
         }
+
+        binding.tvFollows.setOnClickListener {
+            navigation.goToFollowing(binding.tvLogin.text.toString())
+        }
     }
 
     override fun addObservers(owner: LifecycleOwner) {
         super.addObservers(owner)
+        loadWebUserObserver(owner)
         loadUserObserver(owner)
         loadUserFollowersObserver(owner)
         loadUserFollowingObserver(owner)
@@ -50,6 +56,25 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     }
 
     private fun loadUserObserver(owner: LifecycleOwner) {
+        viewModel.getSingleUserViewState.onPostValue(owner,
+            onSuccess = { model ->
+                binding.imgProfilePicture.loadUrlWithCircular(model.gitUserData.user.avatar_url)
+                binding.tvBio.text = model.gitUserData.user.bio ?: ""
+                binding.tvLogin.text = model.gitUserData.user.login
+                binding.tvName.text = model.gitUserData.user.name ?: ""
+
+
+                viewModel.getUserFollowers(model.gitUserData.user.login ?: "")
+                viewModel.getUserFollowing(model.gitUserData.user.login ?: "")
+                viewModel.getNumberRepos(model.gitUserData.user.login ?: "")
+                onStateLoading()
+            },
+            onError = {
+                showErrorDialog()
+            }
+        )
+    }
+    private fun loadWebUserObserver(owner: LifecycleOwner) {
         viewModel.getSingleUserViewState.onPostValue(owner,
             onSuccess = { model ->
                 binding.imgProfilePicture.loadUrlWithCircular(model.gitUserData.user.avatar_url)

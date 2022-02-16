@@ -75,8 +75,12 @@ class UserProfileViewModel : ViewModel(), KoinComponent {
                 _getUserReposViewState.postError(it)
             }
         )
+    }
+
+    fun getWebUser(username: String){
 
     }
+
 }
 
 

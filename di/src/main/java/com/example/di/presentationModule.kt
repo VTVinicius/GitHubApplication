@@ -2,6 +2,7 @@ package com.example.di
 
 import com.example.feature_search.history_users.HistoryViewModel
 import com.example.feature_search.search_user.SearchUserViewModel
+import com.example.feature_search.user_follow.user_following.UserFollowingViewModel
 import com.example.feature_search.user_profile.UserProfileViewModel
 import com.example.feature_search.user_repos.UserReposViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -13,5 +14,6 @@ val presentationModule = module {
     viewModel { SearchUserViewModel() }
     viewModel { HistoryViewModel() }
     viewModel { UserReposViewModel() }
+    viewModel { UserFollowingViewModel() }
 
 }

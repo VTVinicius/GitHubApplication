@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search_navigation"
     app:startDestination="@id/userProfileFragment">
     <fragment
@@ -10,9 +11,16 @@
         <action
             android:id="@+id/action_userProfileFragment_to_userReposFragment"
             app:destination="@id/userReposFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_userFollowingFragment"
+            app:destination="@id/userFollowingFragment" />
     </fragment>
     <fragment
         android:id="@+id/userReposFragment"
         android:name="com.example.feature_search.user_repos.UserReposFragment"
         android:label="UserReposFragment" />
+    <fragment
+        android:id="@+id/userFollowingFragment"
+        android:name="com.example.feature_search.user_follow.user_following.UserFollowingFragment"
+        android:label="UserFollowingFragment" />
 </navigation>

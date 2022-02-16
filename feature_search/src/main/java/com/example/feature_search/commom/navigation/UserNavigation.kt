@@ -9,5 +9,7 @@ interface UserNavigation {
 
     fun goBackToSearch()
     fun goToRepositories(name: String)
+    fun goToFollowing(name: String)
+    fun goToUserProfile(name: String)
 
 }

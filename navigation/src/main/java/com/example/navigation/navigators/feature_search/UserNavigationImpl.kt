@@ -2,7 +2,6 @@ package com.example.navigation.navigators.feature_search
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.commom.navigation.UserNavigation
 import com.example.navigation.R
 import com.example.navigation.utils.navigate
@@ -26,4 +25,20 @@ class UserNavigationImpl(
             navOptions = setAnimSlideVerticalUp()
         )
     }
+
+    override fun goToFollowing(name: String) {
+            fragment.navigate(
+            R.id.action_userProfileFragment_to_userFollowingFragment,
+            bundleOf(UserNavigation.ARG_USER_NAME to name),
+            navOptions = setAnimSlideVerticalUp()
+        )
+    }
+    override fun goToUserProfile(name: String) {
+            fragment.navigate(
+            R.id.userProfileFragment,
+            bundleOf(UserNavigation.ARG_USER_NAME to name),
+            navOptions = setAnimSlideVerticalUp()
+        )
+    }
+
 }
