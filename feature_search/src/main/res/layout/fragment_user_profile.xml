@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/background">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,193 +23,112 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/toConstraint"
+            <ImageView
+                android:id="@+id/background"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/bg_black_gradient" />
+
+            <ImageView
+                android:id="@+id/imgProfilePicture"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginTop="28dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@+id/background"
+                app:srcCompat="@drawable/img_github">
 
+            </ImageView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/reposCardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvBio">
+            <TextView
+                android:id="@+id/tvLogin"
+                style="@style/Font.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgProfilePicture"
+                tools:text="o meu nome é vinicius teixeeria" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/Font.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLogin"
+                tools:text="Zenilton Cordeiro Cardoso Silve Braga Morais" />
 
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close_btn" />
 
-                        <ImageView
-                            android:id="@+id/iconRepos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_icon_1" />
+            <TextView
+                android:id="@+id/tvInformation"
+                style="@style/Font.SubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Informações"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCommunity"
+                app:layout_constraintEnd_toStartOf="@+id/tvCommunity"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                        <TextView
-                            android:id="@+id/reposTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Repositórios"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/iconRepos"
-                            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvCommunity"
+                style="@style/Font.SubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Comunidade"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvRepositories"
+                app:layout_constraintStart_toEndOf="@+id/tvInformation"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
-                        <TextView
-                            android:id="@+id/reposNumberTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:text="0"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            app:layout_constraintStart_toEndOf="@+id/reposTv"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <ImageView
-                    android:id="@+id/background"
-                    android:layout_width="match_parent"
-                    android:layout_height="112dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bg_black_gradient" />
-
-                <ImageView
-                    android:id="@+id/imgProfilePicture"
-                    android:layout_width="112dp"
-                    android:layout_height="112dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/background"
-                    app:layout_constraintTop_toBottomOf="@+id/background"
-                    app:srcCompat="@drawable/img_github">
-
-                </ImageView>
-
-                <ImageView
-                    android:id="@+id/icon_followers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/imgProfilePicture"
-                    app:layout_constraintTop_toBottomOf="@+id/tvName"
-                    app:srcCompat="@drawable/ic_icon_1" />
-
-                <TextView
-                    android:id="@+id/tvNumberFollowers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="0"
-                    app:layout_constraintStart_toEndOf="@+id/icon_followers"
-                    app:layout_constraintTop_toTopOf="@+id/icon_followers" />
-
-                <TextView
-                    android:id="@+id/tvFollowers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Seguidores"
-                    app:layout_constraintStart_toEndOf="@+id/tvNumberFollowers"
-                    app:layout_constraintTop_toTopOf="@+id/tvNumberFollowers" />
-
-                <TextView
-                    android:id="@+id/tvNumberFollowing"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="0"
-                    app:layout_constraintStart_toEndOf="@+id/tvFollowers"
-                    app:layout_constraintTop_toTopOf="@+id/tvFollowers" />
-
-                <TextView
-                    android:id="@+id/tvFollows"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="Seguindo"
-                    app:layout_constraintStart_toEndOf="@+id/tvNumberFollowing"
-                    app:layout_constraintTop_toTopOf="@+id/tvNumberFollowing" />
-
-                <TextView
-                    android:id="@+id/tvLogin"
-                    style="@style/Font.Title"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="bottom"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imgProfilePicture"
-                    app:layout_constraintTop_toBottomOf="@+id/btnClose"
-                    tools:text="o meu nome é vinicius teixeeria" />
-
-                <TextView
-                    android:id="@+id/tvName"
-                    style="@style/Font.Title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/imgProfilePicture"
-                    app:layout_constraintTop_toBottomOf="@+id/background"
-                    tools:text="Zenilton Cordeiro Cardoso Silve Braga Morais" />
-
-                <ImageView
-                    android:id="@+id/btnClose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_close_btn" />
-
-                <TextView
-                    android:id="@+id/tvBio"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="texto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto textotexto texto texto"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvFollows" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvRepositories"
+                style="@style/Font.SubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Repositórios"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCommunity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvCommunity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

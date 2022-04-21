@@ -42,15 +42,19 @@
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/uikit/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/Vinicius/AndroidStudioProjects/GitHubApplication/uikit/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.3828125" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/bottom_sheet_user_info.xml" value="0.2971014492753623" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_history.xml" value="0.2" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_search.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_profile.xml" value="0.33" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_repos.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/drawable/bg_black_gradient.xml" value="0.3675" />
+        <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/drawable/bg_blue_effect.xml" value="0.3675" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/drawable/bg_outline_button.xml" value="0.3828125" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/card_github_user.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/card_github_user_rv.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/card_user_repos.xml" value="0.33" />
+        <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/custom_card_repos_list.xml" value="0.2341485507246377" />
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/custom_card_user_list.xml" value="0.36666666666666664" />
       </map>
     </option>
