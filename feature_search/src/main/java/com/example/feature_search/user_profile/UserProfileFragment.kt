@@ -35,9 +35,9 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
             navigation.goBackToSearch()
         }
 
-        binding.reposCardView.setOnClickListener {
-            navigation.goToRepositories(binding.tvLogin.text.toString())
-        }
+//        binding.reposCardView.setOnClickListener {
+//            navigation.goToRepositories(binding.tvLogin.text.toString())
+//        }
     }
 
     override fun addObservers(owner: LifecycleOwner) {
@@ -53,7 +53,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
         viewModel.getSingleUserViewState.onPostValue(owner,
             onSuccess = { model ->
                 binding.imgProfilePicture.loadUrlWithCircular(model.gitUserData.user.avatar_url)
-                binding.tvBio.text = model.gitUserData.user.bio ?: ""
+//                binding.tvBio.text = model.gitUserData.user.bio ?: ""
                 binding.tvLogin.text = model.gitUserData.user.login
                 binding.tvName.text = model.gitUserData.user.name ?: ""
 
@@ -72,7 +72,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     private fun loadUserFollowersObserver(owner: LifecycleOwner) {
         viewModel.getUserFollowersViewState.onPostValue(owner,
             onSuccess = {
-                binding.tvNumberFollowers.text = it.size.toString()
+//                binding.tvNumberFollowers.text = it.size.toString()
             }
         )
     }
@@ -80,7 +80,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     private fun loadUserFollowingObserver(owner: LifecycleOwner) {
         viewModel.getUserFollowingViewState.onPostValue(owner,
             onSuccess = {
-                binding.tvNumberFollowing.text = it.size.toString()
+//                binding.tvNumberFollowing.text = it.size.toString()
             }
         )
     }
@@ -88,7 +88,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     private fun loadUserReposObserver(owner: LifecycleOwner) {
         viewModel.getUserReposViewState.onPostValue(owner,
             onSuccess = {
-                binding.reposNumberTv.text = it.size.toString()
+//                binding.reposNumberTv.text = it.size.toString()
             }
         )
     }
