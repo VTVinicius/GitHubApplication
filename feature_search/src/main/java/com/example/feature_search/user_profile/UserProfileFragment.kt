@@ -9,6 +9,7 @@ import com.example.feature_search.commom.navigation.MobileNavigation
 import com.example.feature_search.commom.navigation.UserNavigation
 import com.example.feature_search.databinding.FragmentUserProfileBinding
 import com.example.uikit.extensions.loadUrlWithCircular
+import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -24,11 +25,23 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
     override fun setupView() {
         super.setupView()
         hideActionBar()
+        buildViewPager()
 
         arguments?.getLong(MobileNavigation.ARG_USER_ID)?.let { viewModel.getSingleUser(it) }
         onClickFun()
     }
 
+
+    private fun buildViewPager() {
+        binding.viewPagerLayout.adapter = UserProfileHostAdapter(requireActivity())
+        TabLayoutMediator(binding.tabLayout, binding.viewPagerLayout) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Informções"
+                1 -> tab.text = "Comunidade"
+                2 -> tab.text = "Repositórios"
+            }
+        }
+    }
 
     private fun onClickFun() {
         binding.btnClose.setOnClickListener {

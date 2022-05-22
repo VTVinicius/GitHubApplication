@@ -46,4 +46,6 @@ ext {
     roomVersion = "2.2.5"
     sqliteVersion = "2.1.0"
 
+    //viewpager2
+    viewpager2Version = "2:1.0.0"
 }
