@@ -12,7 +12,7 @@ class UserProfileHostAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
         return when (position) {
             0 -> {
-                UserProfileFragment()
+                UserProfileInfoFragment()
             }
             1 -> {
                 UserProfileCommunityFragment()

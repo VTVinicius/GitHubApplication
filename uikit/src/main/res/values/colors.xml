@@ -15,5 +15,6 @@
     <color name="input_text">#696969</color>
     <color name="background">#F6F6F6</color>
     <color name="dark_blue">#0010A1</color>
+    <color name="light_gray">#EAEAEA</color>
 
 </resources>

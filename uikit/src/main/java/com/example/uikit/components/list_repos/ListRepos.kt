@@ -1,22 +1,20 @@
-package com.example.uikit.list_github_user
+package com.example.uikit.components.list_repos
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.uikit.R
-import com.example.uikit.databinding.CardGithubUserBinding
+import com.example.uikit.databinding.CardUserReposBinding
 import com.example.uikit.extensions.layoutInflater
 
-open class GithubListUsers @JvmOverloads constructor(
+open class ListRepos @JvmOverloads constructor(
     context: Context,
     attributes: AttributeSet? = null,
     defStyleAttr: Int = 0,
 ) : ConstraintLayout(context, attributes, defStyleAttr) {
 
-
     private val binding by lazy {
-        CardGithubUserBinding.inflate(context.layoutInflater, this, false)
+        CardUserReposBinding.inflate(context.layoutInflater, this, false)
     }
 
 
@@ -26,22 +24,17 @@ open class GithubListUsers @JvmOverloads constructor(
             binding.tvName.text = value
         }
 
-    var login: String? = ""
+    var description: String? = ""
         set(value) {
             field = value
-            binding.tvLogin.text = value
+            binding.tvDescription.text = value
         }
 
-    var bio: String? = ""
+    var language: String? = ""
         set(value) {
             field = value
-            binding.tvBio.text = value
+            binding.tvLanguage.text = value
         }
-
-    val profilePic: ImageView? by lazy {
-        binding.image
-    }
-
 
     init {
         setUpViews(attributes)
@@ -49,12 +42,13 @@ open class GithubListUsers @JvmOverloads constructor(
 
     private fun setUpViews(attrs: AttributeSet?) {
         attrs?.apply {
-            with(context.obtainStyledAttributes(this, R.styleable.GithubListUsers)) {
-                name = getString(R.styleable.GithubListUsers_name) ?: "Nome Pessoal"
-                login = getString(R.styleable.GithubListUsers_login) ?: "Nome Github"
-                bio = getString(R.styleable.GithubListUsers_bio) ?: "Sem Biografia"
+            with(context.obtainStyledAttributes(this, R.styleable.ListRepos)) {
+                name = getString(R.styleable.ListRepos_nameUser) ?: ""
+                description = getString(R.styleable.ListRepos_description) ?: ""
+                language = getString(R.styleable.ListRepos_language) ?: ""
                 recycle()
             }
         }
     }
+
 }

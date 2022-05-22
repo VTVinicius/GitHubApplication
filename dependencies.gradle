@@ -22,7 +22,8 @@ ext {
             [configuration: "annotationProcessor", dependency: "$glideAnnotation"],
             [configuration: "implementation", dependency: "$flexbox"],
             [configuration: "implementation", dependency: "$gson"],
-            [configuration: "implementation", dependency: "$swiperefreshlayout"]
+            [configuration: "implementation", dependency: "$swiperefreshlayout"],
+            [configuration: "implementation", dependency: "$viewpager2"]
     ]
 
     intentDependencies = appDependencies + [
@@ -49,8 +50,8 @@ ext {
             [configuration: "implementation", dependency: "$viewModel"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],
             [configuration: "implementation", dependency: "$lifecycleXt"],
-            [configuration: "implementation", dependency: "$liveData"],
-            [configuration: "implementation", dependency: "$viewpager2"]
+            [configuration: "implementation", dependency: "$liveData"]
+
     ]
 
     domainDependencies = commonsDependencies + testDomainDependencies + [

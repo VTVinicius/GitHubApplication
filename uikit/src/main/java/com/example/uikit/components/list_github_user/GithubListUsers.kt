@@ -1,21 +1,22 @@
-package com.example.uikit.list_repos
+package com.example.uikit.components.list_github_user
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.uikit.R
 import com.example.uikit.databinding.CardGithubUserBinding
-import com.example.uikit.databinding.CardUserReposBinding
 import com.example.uikit.extensions.layoutInflater
 
-open class ListRepos @JvmOverloads constructor(
+open class GithubListUsers @JvmOverloads constructor(
     context: Context,
     attributes: AttributeSet? = null,
     defStyleAttr: Int = 0,
 ) : ConstraintLayout(context, attributes, defStyleAttr) {
 
+
     private val binding by lazy {
-        CardUserReposBinding.inflate(context.layoutInflater, this, false)
+        CardGithubUserBinding.inflate(context.layoutInflater, this, false)
     }
 
 
@@ -25,17 +26,22 @@ open class ListRepos @JvmOverloads constructor(
             binding.tvName.text = value
         }
 
-    var description: String? = ""
+    var login: String? = ""
         set(value) {
             field = value
-            binding.tvDescription.text = value
+            binding.tvLogin.text = value
         }
 
-    var language: String? = ""
+    var bio: String? = ""
         set(value) {
             field = value
-            binding.tvLanguage.text = value
+            binding.tvBio.text = value
         }
+
+    val profilePic: ImageView? by lazy {
+        binding.image
+    }
+
 
     init {
         setUpViews(attributes)
@@ -43,13 +49,12 @@ open class ListRepos @JvmOverloads constructor(
 
     private fun setUpViews(attrs: AttributeSet?) {
         attrs?.apply {
-            with(context.obtainStyledAttributes(this, R.styleable.ListRepos)) {
-                name = getString(R.styleable.ListRepos_nameUser) ?: ""
-                description = getString(R.styleable.ListRepos_description) ?: ""
-                language = getString(R.styleable.ListRepos_language) ?: ""
+            with(context.obtainStyledAttributes(this, R.styleable.GithubListUsers)) {
+                name = getString(R.styleable.GithubListUsers_name) ?: "Nome Pessoal"
+                login = getString(R.styleable.GithubListUsers_login) ?: "Nome Github"
+                bio = getString(R.styleable.GithubListUsers_bio) ?: "Sem Biografia"
                 recycle()
             }
         }
     }
-
 }

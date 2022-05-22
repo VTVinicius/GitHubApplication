@@ -40,7 +40,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>() {
                 1 -> tab.text = "Comunidade"
                 2 -> tab.text = "Repositórios"
             }
-        }
+        }.attach()
     }
 
     private fun onClickFun() {

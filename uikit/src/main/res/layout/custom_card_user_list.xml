@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.example.uikit.list_github_user.GithubListUsers
+    <com.example.uikit.components.list_github_user.GithubListUsers
         android:id="@+id/itemsRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -10,5 +10,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </com.example.uikit.list_github_user.GithubListUsers>
+    </com.example.uikit.components.list_github_user.GithubListUsers>
 </merge>
