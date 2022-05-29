@@ -1,4 +1,4 @@
-package com.example.feature_search.user_profile
+package com.example.feature_search.user_profile.pages.community
 
 import android.view.LayoutInflater
 import com.example.base_feature.core.BaseFragment

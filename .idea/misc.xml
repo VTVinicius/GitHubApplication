@@ -58,8 +58,9 @@
         <entry key="..\:/Users/Vinicius/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/custom_card_user_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_profile.xml" value="0.3227561196736174" />
         <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_profile_community.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_profile_info.xml" value="0.22" />
+        <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_profile_info.xml" value="0.33" />
         <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/feature_search/src/main/res/layout/fragment_user_profile_repositorys.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/card_github_user.xml" value="0.3625" />
         <entry key="..\:/Users/almic/Documents/GitHub/GitHubApplication/uikit/src/main/res/layout/custom_card_user_infos.xml" value="0.5" />
       </map>
     </option>
