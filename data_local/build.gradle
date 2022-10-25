@@ -1,7 +1,9 @@
+plugins {
+    id 'com.google.devtools.ksp' version '1.7.20-1.0.7'
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
 
 apply from: "$rootProject.projectDir/android-common.gradle"
 
@@ -10,4 +12,9 @@ dependencies {
 
     dataLocalDependencies.each { add(it.configuration, it.dependency, it.option) }
 
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
