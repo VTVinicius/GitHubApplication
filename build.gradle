@@ -1,16 +1,10 @@
-apply from: 'versions.gradle'
-apply from: 'libs.gradle'
-apply from: 'testLibs.gradle'
-apply from: 'testDependencies.gradle'
-apply from: 'dependencies.gradle'
-
-
 
 buildscript {
     ext{
-        kotlin_version = '1.5.30'
+        agp_version = '7.3.1'
+        kotlin_version = '1.7.20'
     }
-    ext.kotlinVersion = '1.5.30'
+    ext.kotlinVersion = '1.7.20'
 
     repositories {
         google()
@@ -20,22 +14,34 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+        classpath "com.android.tools.build:gradle:$agp_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
     }
 }
 
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20' apply false
+    id 'com.google.devtools.ksp' version '1.7.20-1.0.7'
+}
+apply from: 'versions.gradle'
+apply from: 'libs.gradle'
+apply from: 'testLibs.gradle'
+apply from: 'testDependencies.gradle'
+apply from: 'dependencies.gradle'
+
+
 
 allprojects {
     repositories {
+        mavenCentral()
         google()
         jcenter()
-        mavenCentral()
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

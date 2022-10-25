@@ -12,6 +12,7 @@ buildscript {
 }
 
 
+apply plugin: 'com.google.devtools.ksp'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
